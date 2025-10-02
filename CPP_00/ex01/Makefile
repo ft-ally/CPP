@@ -1,8 +1,9 @@
 NAME = phonebook
 
-RED = \033[1;31m
-GREEN   = \033[1;32m
-YELLOW = \033[1;33m
+PURPLE = \033[1;35m
+CYAN = \033[1;36m
+BLUE = \033[1;34m
+PINK = \033[1;95m
 RESET = \033[0m
 
 COMP = g++
@@ -17,22 +18,22 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(COMP) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)Compilation successful $(RESET)"
+	@echo "$(PINK)Compilation successful $(RESET)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@mkdir -p $(OBJ_DIR)
-	@echo "$(YELLOW)Compiling $<... $(RESET)"
+	@echo "$(PURPLE)Compiling $<... $(RESET)"
 	@$(COMP) $(FLAGS) -c $< -o $@
 
 clean:
 	@$(RM) -rf $(OBJ_DIR)
-	@echo "$(RED)Object files successfully removed $(RESET)"
+	@echo "$(BLUE)Object files removed $(RESET)"
 
 fclean: clean
 	@$(RM) -f $(NAME)
-	@echo "$(RED)Executable file successfully removed $(RESET)"
+	@echo "$(BLUE)Executable file removed $(RESET)"
 
 re: fclean all
-	@echo "$(GREEN)Object and executable files successfully rebuilt $(RESET)"
+	@echo "$(PINK)Object and executable files successfully rebuilt $(RESET)"
 
 .PHONY: all re clean fclean
