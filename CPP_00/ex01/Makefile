@@ -11,7 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-SRC_FILES = phonebook.cpp
+HEADER_FILES = phonebook.class.hpp
+SRC_FILES = main.cpp phonebook.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
@@ -20,7 +21,7 @@ $(NAME): $(OBJ)
 	@$(COMP) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo "$(PINK)Compilation successful $(RESET)"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(HEADER_FILES)
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(PURPLE)Compiling $<... $(RESET)"
 	@$(COMP) $(FLAGS) -c $< -o $@
