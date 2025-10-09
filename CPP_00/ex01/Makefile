@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = phonebook.class.hpp
-SRC_FILES = main.cpp phonebook.cpp
+HEADER_FILES = phonebook.hpp contact.hpp
+SRC_FILES = phonebook.cpp contact.cpp main.cpp 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)

@@ -10,27 +10,52 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.class.hpp"
+#include "phonebook.hpp"
+#include <unistd.h>
 
+void	display_boot_message()
+{
+	std::cout << "doop doop doop (startup music)" << std::endl;
+	usleep(500000);
+	std::cout << "Welcome to your very own PhoneBook" << std::endl << std::endl;
+	usleep(800000);
+	std::cout << "ADD: Add up to 8 contacts!" << std::endl << "When 8 contacts are exceeded, ";
+	std::cout << "newest will replace the oldest!" << std::endl;
+	usleep(900000);
+	std::cout << "SEARCH: Search for a contact"<<std::endl;
+	usleep(800000);
+	std::cout << "EXIT: Exit the program, contacts will be deleted" << std::endl << std::endl;
+
+}
 int main()
 {
 	Phonebook	phonebook;
 	std::string	command;
 
+	//display_boot_message();
 	while (1)
 	{
-		std::cout << "Enter command (ADD, SEARCH, EXIT)";
+		usleep(800000);
+		std::cout << "What would you like to do? [ADD/SEARCH/EXIT]" << std::endl;
 		std::getline(std::cin, command);
 		
 		if (command == "EXIT")
-			break ;
+		{
+			std::cout << "Contacts will be deleted upon exit. Are you sure? [Y/N]" << std::endl;
+			std::getline(std::cin, command);
+			if (command == "Y" || command == "y")
+				break ;
+			else
+				continue ;
+		}
 		else if (command == "ADD")
 			phonebook.add();
 		else if (command == "SEARCH")
 			phonebook.search();
 		else
-			std::cout << "Invalid command!" << std::endl 
-				<< "Enter command (ADD, SEARCH, EXIT)" << std::endl;
-		
+			continue ;
 	}
+	std::cout << "Contacts deleted" << std::endl;
+	std::cout << "Goodbye forever!";
+	return(1);
 }

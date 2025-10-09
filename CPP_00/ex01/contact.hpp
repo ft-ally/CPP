@@ -10,4 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.class.hpp"
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
+#include <string>
+
+class Contact
+{
+	std::string firstName;
+	std::string lastName;
+	std::string nickName;
+	std::string phoneNumber;
+	std::string darkestSecret;
+	
+	public:
+		Contact();
+		int addContact();
+		void displayContactOverview(int i);
+		void displayContactDetails();
+};
+
+bool isDigit(std::string number);
+
+#endif
