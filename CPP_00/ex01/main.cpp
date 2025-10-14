@@ -32,7 +32,7 @@ int main()
 	Phonebook	phonebook;
 	std::string	command;
 
-	//display_boot_message();
+	display_boot_message();
 	while (1)
 	{
 		usleep(800000);

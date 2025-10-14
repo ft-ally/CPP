@@ -45,6 +45,26 @@
 		"span": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
-		"typeinfo": "cpp"
+		"typeinfo": "cpp",
+		"__locale": "cpp",
+		"__verbose_abort": "cpp",
+		"bitset": "cpp",
+		"cstring": "cpp",
+		"ios": "cpp",
+		"locale": "cpp",
+		"mutex": "cpp",
+		"print": "cpp",
+		"__bit_reference": "cpp",
+		"__hash_table": "cpp",
+		"__node_handle": "cpp",
+		"__split_buffer": "cpp",
+		"complex": "cpp",
+		"ctime": "cpp",
+		"execution": "cpp",
+		"queue": "cpp",
+		"ratio": "cpp",
+		"sstream": "cpp",
+		"stack": "cpp",
+		"variant": "cpp"
 	}
 }
