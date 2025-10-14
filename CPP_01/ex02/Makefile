@@ -1,4 +1,4 @@
-NAME = morebrainz
+NAME = hithisisbrain
 
 PURPLE = \033[1;35m
 CYAN = \033[1;36m
@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++11
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = Zombie.hpp
-SRC_FILES = main.cpp Zombie.cpp zombieHorde.cpp
+
+SRC_FILES = main.cpp 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
@@ -21,7 +21,7 @@ $(NAME): $(OBJ)
 	@$(COMP) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo "$(PINK)Compilation successful $(RESET)"
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(HEADER_FILES)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(PURPLE)Compiling $<... $(RESET)"
 	@$(COMP) $(FLAGS) -c $< -o $@
