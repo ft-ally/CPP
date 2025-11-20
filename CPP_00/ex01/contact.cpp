@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalombro <aalombro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:30:41 by aalombro          #+#    #+#             */
-/*   Updated: 2025/10/02 16:30:42 by aalombro         ###   ########.fr       */
+/*   Updated: 2025/11/20 16:25:28 by aalombro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@ std::string	getField(std::string str)
 	if (str == "secret")
 	{
 		std::cout << "What is your darkest secret? ";
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(0);
 	}
 	else
 	{
 		std::cout << "Enter your " << str << ": ";
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input))
+			exit(0);
 	}
 	if (input.length() == 0)
 	{
@@ -49,7 +51,8 @@ std::string	getField(std::string str)
 		{
 			std::cout << "Field cannot be empty!" << std::endl;
 			std::cout << "Enter your " << str << ": ";
-			std::getline(std::cin, input);
+			if (!std::getline(std::cin, input))
+				exit(0);
 		}
 	}
 	if (str == "phone number" && !isDigit(input))
@@ -58,7 +61,8 @@ std::string	getField(std::string str)
 		{
 			std::cout << "ERROR: Invalid character detected" << std::endl;
 			std::cout << "Enter your " << str << ": ";
-			std::getline(std::cin, input);
+			if (!std::getline(std::cin, input))
+				exit(0);
 		}
 	}
 	

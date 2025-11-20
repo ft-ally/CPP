@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalombro <aalombro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:30:41 by aalombro          #+#    #+#             */
-/*   Updated: 2025/10/02 16:30:42 by aalombro         ###   ########.fr       */
+/*   Updated: 2025/11/20 16:31:05 by aalombro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	display_boot_message()
 	usleep(500000);
 	std::cout << "Welcome to your very own PhoneBook" << std::endl << std::endl;
 	usleep(800000);
-	std::cout << "ADD: Add up to 8 contacts!" << std::endl << "When 8 contacts are exceeded, ";
-	std::cout << "newest will replace the oldest!" << std::endl;
+	std::cout << "ADD: Add up to 8 contacts!" << std::endl << "**When 8 contacts are exceeded, ";
+	std::cout << "newest will replace the oldest" << std::endl;
 	usleep(900000);
 	std::cout << "SEARCH: Search for a contact"<<std::endl;
 	usleep(800000);
@@ -29,7 +29,7 @@ void	display_boot_message()
 }
 int main()
 {
-	Phonebook	phonebook;
+	PhoneBook	phonebook;
 	std::string	command;
 
 	display_boot_message();
@@ -37,12 +37,13 @@ int main()
 	{
 		usleep(800000);
 		std::cout << "What would you like to do? [ADD/SEARCH/EXIT]" << std::endl;
-		std::getline(std::cin, command);
-		
+		if (!std::getline(std::cin, command))
+			break ;
 		if (command == "EXIT")
 		{
 			std::cout << "Contacts will be deleted upon exit. Are you sure? [Y/N]" << std::endl;
-			std::getline(std::cin, command);
+			if (!std::getline(std::cin, command))
+				break ;
 			if (command == "Y" || command == "y")
 				break ;
 			else
@@ -53,9 +54,12 @@ int main()
 		else if (command == "SEARCH")
 			phonebook.search();
 		else
+		{
+			std::cout << "Command not found" << std::endl;
 			continue ;
+		}
 	}
 	std::cout << "Contacts deleted" << std::endl;
-	std::cout << "Goodbye forever!";
+	std::cout << "Goodbye forever!" << std::endl;
 	return(1);
 }

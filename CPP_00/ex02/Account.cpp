@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalombro <aalombro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:30:41 by aalombro          #+#    #+#             */
-/*   Updated: 2025/10/02 16:30:42 by aalombro         ###   ########.fr       */
+/*   Updated: 2025/11/20 16:33:41 by aalombro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,15 @@ Account::~Account()
 			<< ";amount:" << _amount
 			<< ";closed" << std::endl;
 }
-void Account::_displayTimestamp()
+
+void Account::_displayTimestamp(void)
 {
-	std::time_t t = std::time(0);
-	std::tm *now = std::localtime(&t);
-	std::cout << "[" << std::put_time(now, "%Y%m%d_%H%M%S") 
-			<< "]";
+	time_t timestamp;
+	char time_array[16];
+
+	time(&timestamp);
+	std::strftime(time_array, sizeof(time_array), "%Y%m%d_%H%M%S", std::localtime(&timestamp));
+	std::cout << '[' << time_array << ']';
 }
 
 void Account::displayAccountsInfos()
@@ -98,7 +101,7 @@ bool Account::makeWithdrawal(int withdrawal)
 		<< ";withdrawal:";
 	if (res == -1)
 	{
-		std::cout << "refused" << std::endl;		
+		std::cout << "refused" << std::endl;
 		return (false);
 	}
 	else

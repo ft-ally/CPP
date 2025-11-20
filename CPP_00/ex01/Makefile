@@ -6,8 +6,8 @@ BLUE = \033[1;34m
 PINK = \033[1;95m
 RESET = \033[0m
 
-COMP = g++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+COMP = c++
+FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 

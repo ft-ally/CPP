@@ -6,7 +6,7 @@
 /*   By: aalombro <aalombro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:30:41 by aalombro          #+#    #+#             */
-/*   Updated: 2025/10/02 16:30:42 by aalombro         ###   ########.fr       */
+/*   Updated: 2025/11/20 16:18:28 by aalombro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include <string>
 #include "phonebook.hpp"
 
-Phonebook::Phonebook()
+PhoneBook::PhoneBook()
 {
 	count = 0;
 	oldest = 0;
 
 }
 
-void Phonebook::add()
+void PhoneBook::add()
 {
 	contacts[oldest].addContact();
 	if (count < 8)
@@ -31,7 +31,7 @@ void Phonebook::add()
 		oldest = 0;
 	
 }
-void Phonebook::printOverview()
+void PhoneBook::printOverview()
 {
 	for (int i = 0; i < count; i++)
 		contacts[i].displayContactOverview(i);
@@ -53,30 +53,32 @@ int getIndexNumber(int count)
 	while (1)
 	{
 		std::cout << "Select an index to display a contact: " << std::endl;
-		std::getline(std::cin, inputStr);
+		if (!std::getline(std::cin, inputStr))
+			break ;
 		if (!isDigit(inputStr))
 		{
 			std::cout << "Error! Enter numbers only!" << std::endl;
 			continue;
 		}
 		input = std::stoi(inputStr);
-		if (input < 0 || input > count)
+		if (input < 0 || input > count - 1)
 		{
-			std::cout << "Error! Enter index number from 0 to " << count
-			<< ": ";
+			std::cout << "Error! Enter index number from 0 to " << count - 1
+			<< " \n";
 		}
 		else
 			return (input);
 	}
 	return (-1);
 }
-void Phonebook::printContact(int i)
+void PhoneBook::printContact(int i)
 {
 	contacts[i].displayContactDetails();
 }
-void Phonebook::search()
+void PhoneBook::search()
 {
 	int index;
+
 	if (count == 0)
 		std::cout << "No contacts yet.." << std::endl;
 	else
