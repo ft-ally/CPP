@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalombro <aalombro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:30:41 by aalombro          #+#    #+#             */
-/*   Updated: 2025/10/02 16:30:42 by aalombro         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:46:47 by aalombro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 HumanA::HumanA(std::string name, Weapon &weapon)
 	:name(name), weapon(weapon)
 {
-	// std::cout << "Human A " << name << " was born holding a " 
-	// 		<< weapon.getType() << std::endl;
+
 }
 
 HumanA::~HumanA()
