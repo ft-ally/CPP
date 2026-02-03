@@ -6,7 +6,7 @@
 /*   By: aalombro <aalombro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:30:41 by aalombro          #+#    #+#             */
-/*   Updated: 2026/02/03 12:50:57 by aalombro         ###   ########.fr       */
+/*   Updated: 2026/02/03 13:39:34 by aalombro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,4 @@ Fixed &Fixed::operator=(const Fixed &f)
 	return (*this);
 }
 
-float Fixed::toFloat(void) const
-{
-	return ((float)fx / (1 << fr));
-}
 
-int Fixed::toInt(void) const
-{
-	return ((int)fx >> fr);
-}
-
-std::ostream &operator<<(std::ostream& os, const Fixed& num)
-{
-	os << num.toFloat();
-	return (os);
-}

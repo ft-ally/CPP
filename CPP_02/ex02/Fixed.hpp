@@ -6,7 +6,7 @@
 /*   By: aalombro <aalombro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:30:41 by aalombro          #+#    #+#             */
-/*   Updated: 2026/02/03 12:38:55 by aalombro         ###   ########.fr       */
+/*   Updated: 2026/02/03 13:36:40 by aalombro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,15 @@ class Fixed
 	Fixed(const Fixed &ref); //copy constructor
 	Fixed &operator=(const Fixed &f); //copy assignment operator
 	
-	float toFloat(void) const ; //convert fixed to float
-	int toInt(void) const; //convert float to int
+	Fixed operator+(const Fixed &obj);
+	Fixed operator-(const Fixed &obj);
+	Fixed operator*(const Fixed &obj);
+	Fixed operator/(const Fixed &obj);
+	
+	static int &min(int &i, int &j); //(if &i < j , return (i) else return (j));
+	static int &min (const int &i, const int &j);
+	static int &max(int &i, int &j);
+	static int &max (const int &i, const int &j);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& num);
