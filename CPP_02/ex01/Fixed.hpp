@@ -10,44 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <iostream>
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-
-Fixed::Fixed()
+class Fixed
 {
-	fx = 0;
-	std::cout << "Default constructor called\n";
-}
+	int					fx;
+	static const int	fr = 8;
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called\n";
-}
+	public:
+	Fixed();
+	Fixed(const int num);
+	Fixed(const float num);
+	~Fixed();
+	Fixed(const Fixed &ref); //copy constructor
+	Fixed &operator=(const Fixed &f); //copy assignment overload
+	
+	float toFloat(void) const ; //convert fixed to float
+	int toInt(void) const; //convert float to int
+};
 
-Fixed::Fixed(const Fixed &ref)
-{
-	std::cout << "Copy constructor called\n";
-	fx = ref.fx;
-}
+std::ostream& operator<<(std::ostream& os, const Fixed& num);
 
-Fixed &Fixed::operator=(const Fixed &f)
-{
-	std::cout << "Copy assignment operator called\n";
-	if (this != &f)
-		fx = f.fx;
-	return (*this);
-}
+#endif
 
-int Fixed::getRawBits(void) const
-{
-	std::cout << "getRawBits member function called\n";
-	std::cout << fx << std::endl;
-	return (fx);
-}
-
-void Fixed::setRawBits(int const raw)
-{
-	std::cout << "setRawBits member function called\n";
-	fx = raw;
-}

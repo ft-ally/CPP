@@ -16,7 +16,7 @@
 class Fixed
 {
 	int					fx;
-	static const int	fr;
+	static const int	fr = 8;
 
 	public:
 	Fixed();

@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = Zombie.hpp
-SRC_FILES = main.cpp Zombie.cpp zombieHorde.cpp
+HEADER_FILES = Fixed.hpp
+SRC_FILES = main.cpp Fixed.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
