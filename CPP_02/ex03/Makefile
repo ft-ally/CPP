@@ -1,4 +1,4 @@
-NAME = ex02
+NAME = pointyEnd
 
 PURPLE = \033[1;35m
 CYAN = \033[1;36m
@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = Fixed.hpp
-SRC_FILES = main.cpp Fixed.cpp
+HEADER_FILES = Fixed.hpp Point.hpp
+SRC_FILES = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)

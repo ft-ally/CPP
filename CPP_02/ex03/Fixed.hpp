@@ -30,6 +30,7 @@ class Fixed
 	Fixed &operator=(const Fixed &f); //copy assignment operator
 	
 	float toFloat(void) const ; //convert fixed to float
+	int	getRawBits(void) const;
 
 	bool operator>(const Fixed &obj);
 	bool operator>=(const Fixed &obj);

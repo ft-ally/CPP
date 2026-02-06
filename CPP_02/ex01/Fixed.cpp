@@ -12,12 +12,12 @@
 
 #include "Fixed.hpp"
 
-
 Fixed::Fixed()
 {
 	fx = 0;
 	std::cout << "Default constructor called" << std::endl;
 }
+
 Fixed::Fixed(const int num)
 {
 	std::cout << "Int constructor called" << std::endl;
@@ -58,8 +58,22 @@ int Fixed::toInt(void) const
 	return ((int)fx >> fr);
 }
 
-std::ostream &operator<<(std::ostream& os, const Fixed& num)
+int Fixed::getRawBits(void) const
 {
-	os << num.toFloat();
-	return (os);
+	std::cout << "getRawBits member function called\n";
+	std::cout << fx << std::endl;
+	return (fx);
+}
+
+void Fixed::setRawBits(int const raw)
+{
+	std::cout << "setRawBits member function called\n";
+	fx = raw;
+}
+
+//Overloads << str is left of << in the stream, obj is right
+std::ostream &operator<<(std::ostream& str, const Fixed& obj)
+{
+	str << obj.toFloat();
+	return (str);
 }

@@ -29,11 +29,13 @@ class Fixed
 	Fixed(const Fixed &ref); //copy constructor
 	Fixed &operator=(const Fixed &f); //copy assignment operator
 	
+	int	getRawBits(void) const;
+	void setRawBits(int const raw);
 	float toFloat(void) const ; //convert fixed to float
 	int toInt(void) const; //convert float to int
 };
 
-std::ostream& operator<<(std::ostream& os, const Fixed& num);
+std::ostream& operator<<(std::ostream& str, const Fixed& obj);
 
 #endif
 

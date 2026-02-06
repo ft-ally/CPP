@@ -27,3 +27,9 @@ int main( void )
 	return 0;
 }
 
+// int main (void)
+// {
+// 	Fixed a;
+// 	Fixed const b( Fixed( 5.25f ) * Fixed( 10 ) );
+// 	std::cout << b << std::endl;
+// }

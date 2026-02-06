@@ -12,37 +12,36 @@
 
 #include "Fixed.hpp"
 
-
 Fixed::Fixed()
 {
 	fx = 0;
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 Fixed::Fixed(const int num)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	this->fx = num << fr;
 }
 Fixed::Fixed(const float num)
 {
-	std::cout << "Float constructor called"  << std::endl;
+	// std::cout << "Float constructor called"  << std::endl;
 	this->fx = roundf(num * (1 << fr));
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &ref)
 {
-	std::cout << "Copy constructor called"  << std::endl;
+	// std::cout << "Copy constructor called"  << std::endl;
 	*this = ref;
 }
 
 Fixed &Fixed::operator=(const Fixed &f)
 {
-	std::cout << "Copy assignment operator called"  << std::endl;	
+	// std::cout << "Copy assignment operator called"  << std::endl;	
 	if (this != &f)
 		fx = f.fx;
 	return (*this);
@@ -53,6 +52,11 @@ float Fixed::toFloat(void) const
 	return ((float)fx / (1 << fr));
 }
 
+int Fixed::getRawBits(void) const
+{
+	// std::cout << "getRawBits member function called\n";
+	return (fx);
+}
 /// Comparison operator overloads ///
 
 bool Fixed::operator>(const Fixed &obj)

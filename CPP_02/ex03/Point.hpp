@@ -1,52 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalombro <aalombro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:30:41 by aalombro          #+#    #+#             */
-/*   Updated: 2025/11/27 13:54:47 by aalombro         ###   ########.fr       */
+/*   Updated: 2026/02/03 13:39:34 by aalombro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef POINT_HPP
+#define POINT_HPP
 #include "Fixed.hpp"
-#include <iostream>
 
-
-Fixed::Fixed()
+class Point
 {
-	fx = 0;
-	std::cout << "Default constructor called\n";
-}
+	const Fixed x;
+	const Fixed y;
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called\n";
-}
+	public:
+	Point();
+	Point(const float i, const float j);
+	~Point();
+	Point(const Point &obj); //copy constructor
+	Point &operator=(const Point &obj); //copy assignment operator
+	int x_val() const;
+	int y_val() const;
 
-Fixed::Fixed(const Fixed &ref)
-{
-	std::cout << "Copy constructor called\n";
-	fx = ref.fx;
-}
 
-Fixed &Fixed::operator=(const Fixed &f)
-{
-	std::cout << "Copy assignment operator called\n";
-	if (this != &f)
-		fx = f.fx;
-	return (*this);
-}
+};
 
-int Fixed::getRawBits(void) const
-{
-	std::cout << "getRawBits member function called\n";
-	return (fx);
-}
+float calculate_area(int x1, int y1, int x2, int y2, int x3, int y3);
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
-void Fixed::setRawBits(int const raw)
-{
-	std::cout << "setRawBits member function called\n";
-	fx = raw;
-}
+#endif
