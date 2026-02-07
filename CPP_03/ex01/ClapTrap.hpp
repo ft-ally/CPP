@@ -4,6 +4,7 @@
 
 class ClapTrap
 {
+	protected:
 	std::string name;
 	int hp;
 	int ep;
@@ -18,12 +19,11 @@ class ClapTrap
 
 	std::string getName() const;
 	int getDamage() const;
+
 	void attack(const std::string &target);
 	int takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
-	int startGame();
-	std::string initiateStart();
 	
 };
 
