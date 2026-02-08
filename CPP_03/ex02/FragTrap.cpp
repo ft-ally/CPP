@@ -1,0 +1,47 @@
+
+#include "FragTrap.hpp"
+
+FragTrap::FragTrap()
+	: ClapTrap()
+{
+	hp = 100;
+	ep = 100;
+	dmg = 30;
+	std::cout << "FragTrap default constructor called" << std::endl;
+}
+
+FragTrap::FragTrap(std::string name)
+	: ClapTrap(name)
+{
+	hp = 100;
+	ep = 100;
+	dmg = 30;
+	std::cout << "FragTrap constructor called" << std::endl;
+}	
+FragTrap::~FragTrap()
+{
+	std::cout << "FragTrap default constructor called" << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &newFrag)
+	: ClapTrap(newFrag)
+{
+	std::cout << "FragTrap copy constructor called" << std::endl;
+	*this = newFrag;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &copy)
+{
+	if (this != &copy)
+	{
+		ClapTrap::operator=(copy);
+	}
+	std::cout << "FragTrap copy constructor called" << std::endl;
+	return (*this);
+}
+
+void FragTrap::highFiveGuys(void)
+{
+	std::cout << "FragTrap high fived the enemy... nice"
+		<< std::endl;
+}
