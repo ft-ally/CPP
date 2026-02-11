@@ -1,4 +1,4 @@
-NAME = battle
+NAME = polymorph
 
 PURPLE = \033[1;35m
 CYAN = \033[1;36m
@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
-SRC_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+HEADER_FILES = Animal.hpp Dog.hpp Cat.hpp
+SRC_FILES = main.cpp Animal.cpp Dog.cpp Cat.hpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
