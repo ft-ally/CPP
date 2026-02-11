@@ -20,7 +20,7 @@
 class HumanA
 {
 	std::string name;
-	Weapon &weapon;
+	Weapon &weapon; //must be initialized, cannot be empty
 	
 	public:
 	HumanA(std::string name, Weapon &weapon);

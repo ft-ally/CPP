@@ -20,7 +20,7 @@
 class HumanB
 {
 	std::string name;
-	Weapon *weapon;
+	Weapon *weapon; //can be null
 	
 	public:
 	HumanB(std::string name);

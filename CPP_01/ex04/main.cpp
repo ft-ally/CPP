@@ -41,6 +41,15 @@ int	handleFile(std::string fileName, std::string s1, std::string s2)
 		std::cerr << "File error";
 		return (0);
 	}
+	std::ifstream checkFile(fileName + ".replace");
+	if (checkFile.good())
+	{
+		std::cerr << "Error: " << fileName << ".replace already exists!";
+		checkFile.close();
+		file.close();
+		return (0);
+	}
+	checkFile.close();
 	newFile.open(fileName + ".replace");
 	if (!newFile)
 	{
