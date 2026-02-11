@@ -30,7 +30,6 @@ ClapTrap::ClapTrap(const ClapTrap &newPlayer)
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
 		this->name = copy.name;
@@ -38,6 +37,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 		this->ep = copy.ep;
 		this->dmg = copy.dmg;
 	}
+	std::cout << "Copy assignment operator called" << std::endl;
 	return (*this);
 }
 

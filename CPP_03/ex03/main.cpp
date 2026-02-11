@@ -1,6 +1,5 @@
 
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 #include <random>
 #include <unistd.h>
@@ -10,24 +9,24 @@ std::string initiateStart()
 	std::string name;
 	std::cout << "________________________________" << std::endl;
 	std::cout << "|                             |" << std::endl;
-	std::cout << "| Welcome to FragTrap Battle!!|" << std::endl;
+	std::cout << "| Welcome to D-Trap Battle!!  |" << std::endl;
 	std::cout << "|                             |" << std::endl;
 	std::cout << "|_____________________________|" << std::endl;
 	std::cout << std::endl;
-	std::cout << "Enter FragTrap Name: ";
+	std::cout << "Enter D-Trap Name: ";
 	if (!std::getline(std::cin, name))
 		exit(0) ;
 	usleep(1000000);
-	std::cout << "FragTrap " << name << " is ready for battle!" << std::endl;
+	std::cout << "D-Trap " << name << " is ready for battle!" << std::endl;
 	usleep(1000000);
-	std::cout << "FragTrap Boss is ready for battle!" << std::endl;
-	std::cout << "****FragTrap Boss HP: 200" << std::endl << std::endl;
+	std::cout << "D-Trap Boss is ready for battle!" << std::endl;
+	std::cout << "****D-Trap Boss HP: 200" << std::endl << std::endl;
 	return (name);
 }
 
-int startGame(FragTrap &player)
+int startGame(DiamondTrap &player)
 {
-	std::string enemy= "FragTrap Boss";
+	std::string enemy= "D-Trap Boss";
 	int enemy_hp = 200;
 	int amount = 1;
 
@@ -36,7 +35,7 @@ int startGame(FragTrap &player)
 		std::random_device rnd;
 		std::uniform_int_distribution<int> gen{1, 10};
 		int roll = gen(rnd);
-		std::cout << "FragTrap Boss rolls " << roll << "!"
+		std::cout << "D-Trap Boss rolls " << roll << "!"
 		<< std::endl;
 		usleep(1000000);
 		if (roll % 2 == 0)
@@ -46,7 +45,7 @@ int startGame(FragTrap &player)
 		}
 		else
 		{
-			std::cout << "FragTrap Boss hurts itself in confusion causing " << roll << " damage!" << std::endl;
+			std::cout << "D-Trap Boss hurts itself in confusion causing " << roll << " damage!" << std::endl;
 			enemy_hp = enemy_hp-roll;
 			if (enemy_hp < 1)
 			{
@@ -54,12 +53,12 @@ int startGame(FragTrap &player)
 					return (0);
 			}
 			else
-				std::cout << "****FragTrap Boss HP: " << enemy_hp << std::endl;
+				std::cout << "****D-Trap Boss HP: " << enemy_hp << std::endl;
 		}
 		std::string input;
 		usleep(1000000);
 		std::cout << std::endl << "Your move, cowboy!" << std::endl;
-		std::cout << "ATTACK | HEAL | HIGH FIVE | EXIT" << std::endl;
+		std::cout << "ATTACK | HEAL | HIGH FIVE | GUARD | DOUBT EXISTENCE | EXIT" << std::endl;
 		if (!std::getline(std::cin, input))
 			exit(0) ;
 		else if (input == "ATTACK" || input == "attack")
@@ -76,6 +75,10 @@ int startGame(FragTrap &player)
 			player.beRepaired(amount);
 		else if (input == "high five" || input == "HIGH FIVE")
 			player.highFiveGuys();
+		else if (input == "guard" || input == "GUARD")
+			player.guardGate();
+		else if (input == "doubt" || input == "DOUBT")
+			player.whoAmI();
 		else if (input == "EXIT" || input == "exit")
 			break ;
 		else
@@ -91,36 +94,43 @@ int startGame(FragTrap &player)
 // 	FragTrap player(playerName);
 // 	startGame(player);
 // }
-
 int main()
 {
-    std::cout << "=== Test 1: FragTrap Constructor ===" << std::endl;
-    FragTrap frag1("Warrior");
+    std::cout << "=== Test 1: DiamondTrap Constructor ===" << std::endl;
+    DiamondTrap diamond1("Warrior");
     std::cout << std::endl;
 
-    std::cout << "=== Test 2: FragTrap Copy Constructor ===" << std::endl;
-    FragTrap frag2(frag1);
+    std::cout << "=== Test 2: DiamondTrap Copy Constructor ===" << std::endl;
+    DiamondTrap diamond2(diamond1);
     std::cout << std::endl;
 
-    std::cout << "=== Test 3: FragTrap Assignment ===" << std::endl;
-    FragTrap frag3("Fighter");
-    frag3 = frag1;
+    std::cout << "=== Test 3: DiamondTrap Assignment ===" << std::endl;
+    DiamondTrap diamond3("Fighter");
+    diamond3 = diamond1;
     std::cout << std::endl;
 
-    std::cout << "=== Test 4: FragTrap Attack ===" << std::endl;
-    frag1.attack("Enemy");
+    std::cout << "=== Test 4: DiamondTrap Attack (ScavTrap) ===" << std::endl;
+    diamond1.attack("Enemy");
     std::cout << std::endl;
 
-    std::cout << "=== Test 5: FragTrap Take Damage ===" << std::endl;
-    frag1.takeDamage(30);
+    std::cout << "=== Test 5: DiamondTrap Take Damage ===" << std::endl;
+    diamond1.takeDamage(30);
     std::cout << std::endl;
 
-    std::cout << "=== Test 6: FragTrap Repair ===" << std::endl;
-    frag1.beRepaired(20);
+    std::cout << "=== Test 6: DiamondTrap Repair ===" << std::endl;
+    diamond1.beRepaired(20);
     std::cout << std::endl;
 
-    std::cout << "=== Test 7: High Five Mode ===" << std::endl;
-    frag1.highFiveGuys();
+    std::cout << "=== Test 7: Guard Gate (ScavTrap) ===" << std::endl;
+    diamond1.guardGate();
+    std::cout << std::endl;
+
+    std::cout << "=== Test 8: High Five (FragTrap) ===" << std::endl;
+    diamond1.highFiveGuys();
+    std::cout << std::endl;
+
+    std::cout << "=== Test 9: Who Am I ===" << std::endl;
+    diamond1.whoAmI();
     std::cout << std::endl;
 
     std::cout << "=== Destructors (reverse order) ===" << std::endl;

@@ -34,9 +34,12 @@ FragTrap &FragTrap::operator=(const FragTrap &copy)
 {
 	if (this != &copy)
 	{
-		ClapTrap::operator=(copy);
+		this->name = copy.name;
+		this->hp = copy.hp;
+		this->ep = copy.ep;
+		this->dmg = copy.dmg;
 	}
-	std::cout << "FragTrap copy constructor called" << std::endl;
+	std::cout << "FragTrap copy assignment constructor called" << std::endl;
 	return (*this);
 }
 

@@ -18,7 +18,6 @@ class ScavTrap : virtual public ClapTrap
 
 	void attack(const std::string &target);
 	void guardGate();
-	
 	static const int SCAV_HP = 100;
 	static const int SCAV_EP = 50;
 	static const int SCAV_DMG = 20;

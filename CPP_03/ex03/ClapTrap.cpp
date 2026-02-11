@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(const ClapTrap &newPlayer)
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
 {
-	std::cout << "CT copy assignment operator called" << std::endl;
+	std::cout << "Claptrap copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
 		this->name = copy.name;

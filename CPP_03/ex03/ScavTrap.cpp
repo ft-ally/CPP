@@ -38,7 +38,10 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
 	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
-		ClapTrap::operator=(copy);
+		this->name = copy.name;
+		this->hp = copy.hp;
+		this->ep = copy.ep;
+		this->dmg = copy.dmg;
 	}
 	return (*this);
 }
@@ -53,7 +56,7 @@ void ScavTrap::attack(const std::string &target)
 	else
 	{
 		ep -= 1;
-		std::cout << "ScavTrap " << name 
+		std::cout << name 
 			<< " throws a bomb at " << target 
 			<< " for " << dmg 
 			<< " damage!!!" << std::endl
@@ -64,7 +67,7 @@ void ScavTrap::attack(const std::string &target)
 }
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << name << " is now in GATEKEEPER mode"
+	std::cout << name << " is now in GATEKEEPER mode"
 		<< std::endl
 		<< "It doesn't do anything..." 
 		<< std::endl;
