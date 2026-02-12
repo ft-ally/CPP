@@ -23,8 +23,8 @@ class Point
 	Point();
 	Point(const float i, const float j);
 	~Point();
-	Point(const Point &obj); //copy constructor
-	Point &operator=(const Point &obj); //copy assignment operator
+	Point(const Point &src); //copy constructor
+	Point &operator=(const Point &src); //copy assignment operator
 	int x_val() const;
 	int y_val() const;
 

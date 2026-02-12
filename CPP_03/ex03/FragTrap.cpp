@@ -23,21 +23,20 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap default constructor called" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &newFrag)
-	: ClapTrap(newFrag)
+FragTrap::FragTrap(const FragTrap &src)
+	: ClapTrap(src)
 {
 	std::cout << "FragTrap copy constructor called" << std::endl;
-	*this = newFrag;
 }
 
-FragTrap &FragTrap::operator=(const FragTrap &copy)
+FragTrap &FragTrap::operator=(const FragTrap &src)
 {
-	if (this != &copy)
+	if (this != &src)
 	{
-		this->name = copy.name;
-		this->hp = copy.hp;
-		this->ep = copy.ep;
-		this->dmg = copy.dmg;
+		this->name = src.name;
+		this->hp = src.hp;
+		this->ep = src.ep;
+		this->dmg = src.dmg;
 	}
 	std::cout << "FragTrap copy assignment operator called" << std::endl;
 	return (*this);

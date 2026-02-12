@@ -11,15 +11,15 @@ Dog::~Dog()
 	std::cout << "Dog deconstructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &newDog) : Animal(newDog)
+Dog::Dog(const Dog &src) : Animal(src)
 {
 	std::cout << "Dog default copy constructor called" << std::endl;
 }
 
-Dog& Dog::operator=(const Dog &copy)
+Dog& Dog::operator=(const Dog &src)
 {
-	if (this != &copy)
-		this->type = copy.type;
+	if (this != &src)
+		this->type = src.type;
 	return (*this);
 }
 

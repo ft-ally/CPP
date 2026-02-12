@@ -21,21 +21,21 @@ ClapTrap::ClapTrap(std::string name)
 	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &newPlayer)
+ClapTrap::ClapTrap(const ClapTrap &src)
 {
 	std::cout << "ClapTrap copy constructor called" << std::endl;
-	*this = newPlayer;
+	*this = src;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &copy)
+ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 {
 	std::cout << "CT copy assignment operator called" << std::endl;
-	if (this != &copy)
+	if (this != &src)
 	{
-		this->name = copy.name;
-		this->hp = copy.hp;
-		this->ep = copy.ep;
-		this->dmg = copy.dmg;
+		this->name = src.name;
+		this->hp = src.hp;
+		this->ep = src.ep;
+		this->dmg = src.dmg;
 	}
 	return (*this);
 }

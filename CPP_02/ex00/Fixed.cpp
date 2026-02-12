@@ -25,17 +25,17 @@ Fixed::~Fixed()
 	std::cout << "Destructor called\n";
 }
 
-Fixed::Fixed(const Fixed &ref)
+Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "Copy constructor called\n";
-	*this = ref;
+	*this = src;
 }
 
-Fixed &Fixed::operator=(const Fixed &f)
+Fixed &Fixed::operator=(const Fixed &src)
 {
 	std::cout << "Copy assignment operator called\n";
-	if (this != &f)
-		fx = f.fx;
+	if (this != &src)
+		fx = src.fx;
 	return (*this);
 }
 

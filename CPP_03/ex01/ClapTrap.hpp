@@ -14,8 +14,8 @@ class ClapTrap
 	ClapTrap();
 	ClapTrap(std::string name);
 	~ClapTrap();
-	ClapTrap(const ClapTrap &newPlayer); //copy constructor
-	ClapTrap &operator=(const ClapTrap &copy); //copy assignment overload
+	ClapTrap(const ClapTrap &src); //copy constructor
+	ClapTrap &operator=(const ClapTrap &src); //copy assignment overload
 
 	std::string getName() const;
 	int getDamage() const;

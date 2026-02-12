@@ -26,22 +26,21 @@ ScavTrap::~ScavTrap()
 		<< std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &newScav)
-	:ClapTrap(newScav)
+ScavTrap::ScavTrap(const ScavTrap &src)
+	:ClapTrap(src)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
-	*this = newScav;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
+ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 {
 	std::cout << "ScavTrap copy assignment operator called" << std::endl;
-	if (this != &copy)
+	if (this != &src)
 	{
-		this->name = copy.name;
-		this->hp = copy.hp;
-		this->ep = copy.ep;
-		this->dmg = copy.dmg;
+		this->name = src.name;
+		this->hp = src.hp;
+		this->ep = src.ep;
+		this->dmg = src.dmg;
 	}
 	return (*this);
 }

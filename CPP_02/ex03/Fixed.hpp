@@ -26,8 +26,8 @@ class Fixed
 	Fixed(const int num);
 	Fixed(const float num);
 	~Fixed();
-	Fixed(const Fixed &ref); //copy constructor
-	Fixed &operator=(const Fixed &f); //copy assignment operator
+	Fixed(const Fixed &src); //copy constructor
+	Fixed &operator=(const Fixed &src); //copy assignment operator
 	
 	float toFloat(void) const ; //convert fixed to float
 	int	getRawBits(void) const;
@@ -49,7 +49,7 @@ class Fixed
 	Fixed &operator--();
 	Fixed operator--(int);
 	
-	static Fixed &min(Fixed &a, Fixed &b); //(if &i < j , return (i) else return (j));
+	static Fixed &min(Fixed &a, Fixed &b);
 	static const Fixed &min (const Fixed &a, const Fixed &b);
 	static Fixed &max(Fixed &a, Fixed &b);
 	static const Fixed &max (const Fixed &a, const Fixed &b);

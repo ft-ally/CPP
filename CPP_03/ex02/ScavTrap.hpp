@@ -13,8 +13,8 @@ class ScavTrap : public ClapTrap
 	ScavTrap();
 	~ScavTrap();
 	ScavTrap(std::string name);
-	ScavTrap(const ScavTrap &newScav); //copy constructor
-	ScavTrap &operator=(const ScavTrap &copy); //copy assignment overload
+	ScavTrap(const ScavTrap &src); //copy constructor
+	ScavTrap &operator=(const ScavTrap &src); //copy assignment overload
 
 	void attack(const std::string &target);
 	void guardGate();

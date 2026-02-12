@@ -21,8 +21,8 @@ class Fixed
 	public:
 	Fixed();
 	~Fixed();
-	Fixed(const Fixed &ref); //copy constructor
-	Fixed &operator=(const Fixed &f); //copy assignment overload
+	Fixed(const Fixed &src); //copy constructor
+	Fixed &operator=(const Fixed &src); //copy assignment overload
 	int	getRawBits(void) const;
 	void setRawBits(int const raw);
 };

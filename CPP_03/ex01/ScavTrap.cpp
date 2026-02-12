@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-	: ClapTrap ("unNamedScavChild")
+	: ClapTrap ("")
 {
 	hp = 100;
 	ep = 50;
@@ -26,20 +26,22 @@ ScavTrap::~ScavTrap()
 		<< std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &newScav)
+ScavTrap::ScavTrap(const ScavTrap &src)
+	: ClapTrap (src)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
-	*this = newScav;
 }
+//no need to call this = src, because srcclaptrap's values are already set to scav
+//plus there are no other vars
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
+ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 {
-	if (this != &copy)
+	if (this != &src)
 	{
-		this->name = copy.name;
-		this->hp = copy.hp;
-		this->ep = copy.ep;
-		this->dmg = copy.dmg;
+		this->name = src.name;
+		this->hp = src.hp;
+		this->ep = src.ep;
+		this->dmg = src.dmg;
 	}
 	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	return (*this);

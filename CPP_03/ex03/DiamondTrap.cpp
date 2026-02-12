@@ -2,41 +2,40 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap()
-	: FragTrap(), ScavTrap()
+	: ClapTrap(""), FragTrap(), ScavTrap(), name("")
 {
 	std::cout << "DiamondTrap default constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name)
-	:FragTrap(name), ScavTrap(name), name(name) 
+	:ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), name(name) 
 {
-	ClapTrap::name = name + "_clap_name";
 	hp = FragTrap::FRAG_HP;
 	ep = ScavTrap::SCAV_EP;
 	dmg = FragTrap::FRAG_DMG;
 	std::cout << "DiamondTrap constructor called" << std::endl;
-	
 }
+
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap deconstructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &newDiamond)
-	:FragTrap(newDiamond), ScavTrap(newDiamond)
+DiamondTrap::DiamondTrap(const DiamondTrap &src)
+	:ClapTrap(src), FragTrap(src), ScavTrap(src)
 {
+	this->name = src.name;
 	std::cout << "DiamondTrap copy constructor called" << std::endl;
-	*this = newDiamond;
 }
 
-DiamondTrap& DiamondTrap::operator=(const DiamondTrap &copy)
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap &src)
 {
-	if (this != &copy)
+	if (this != &src)
 	{
-		this->name = copy.name;
-		this->hp = copy.hp;
-		this->ep = copy.ep;
-		this->dmg = copy.dmg;
+		this->name = src.name;
+		this->hp = src.hp;
+		this->ep = src.ep;
+		this->dmg = src.dmg;
 	}
 	std::cout << "Diamond trap copy assignment operator called" << std::endl;
 	return (*this);

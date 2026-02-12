@@ -1,6 +1,6 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() : WrongAnimal()
+WrongCat::WrongCat() : WrongAAnimal()
 {
 	this->type = "WrongCat";
 	std::cout << "WrongCat default constructor called" << std::endl;
@@ -11,7 +11,7 @@ WrongCat::~WrongCat()
 	std::cout << "WrongCat deconstructor called" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
+WrongCat::WrongCat(const WrongCat &src) : WrongAAnimal(src)
 {
 	std::cout << "WrongCat copy constructor called" << std::endl;
 	type = "WrongCat";

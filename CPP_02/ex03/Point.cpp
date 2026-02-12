@@ -12,14 +12,14 @@ Point::~Point()
 {
 	// std::cout << "Destructor called" << std::endl;
 }
-Point::Point(const Point &obj) //copy constructor
-	: x(obj.x), y(obj.y)
+Point::Point(const Point &src) //copy constructor
+	: x(src.x), y(src.y)
 {
 }
 
-Point& Point::operator=(const Point &obj) //copy assignment operator
+Point& Point::operator=(const Point &src) //copy assignment operator
 {
-	(void)obj;
+	(void)src;
 	return *this;
 }
 
