@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = Animal.hpp Dog.hpp Cat.hpp
-SRC_FILES = main.cpp Animal.cpp Dog.cpp Cat.hpp
+HEADER_FILES = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.cpp WrongCat.cpp
+SRC_FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
