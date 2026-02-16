@@ -3,6 +3,7 @@
 
 #include <string>
 #include "AMateria.hpp"
+#include "Colors.hpp"
 
 class ICharacter
 {
@@ -16,28 +17,5 @@ class ICharacter
 		virtual void unequip(int idx) = 0;
 		virtual void use(int idx, ICharacter& target) = 0;
 };
-
-ICharacter::ICharacter()
-{
-	std::cout << "Icharacter default constructor called\n";
-}
-
-ICharacter::ICharacter(const ICharacter &src)
-{
-	std::cout << "ICharacter copy constructor called\n";
-	*this = src;
-}
-
-ICharacter& ICharacter::operator=(const ICharacter &src)
-{
-	(void)src;
-	std::cout << "ICharacter copy assignment operator called\n";
-	return (*this);
-}
-
-ICharacter::~ICharacter()
-{
-	std::cout << "ICharacter destructor called\n";
-}
 
 #endif

@@ -1,4 +1,4 @@
-NAME = interface
+NAME = interfaceHell
 
 PURPLE = \033[1;35m
 CYAN = \033[1;36m
@@ -11,8 +11,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = 
-SRC_FILES = main.cpp 
+HEADER_FILES = AMateria.hpp Character.hpp Colors.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
+SRC_FILES = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp ICharacter.cpp IMateriaSource.cpp MateriaSource.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
