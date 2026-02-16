@@ -19,12 +19,12 @@ Zombie::Zombie(std::string name)
 
 Zombie::~Zombie()
 {
-	std::cout << "Zombie " << name << " has gone to the light"
-			<< std::endl;
+	std::cout << CYAN << "Zombie " << name << " has gone to the light"
+			<< RESET << std::endl;
 }
 
 void Zombie::announce()
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." 
-			<< std::endl;
+	std::cout << MAGENTA << name << ": BraiiiiiiinnnzzzZ..." 
+			<< RESET << std::endl;
 }

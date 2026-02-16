@@ -12,6 +12,9 @@
 
 #ifndef HUMANA_HPP
 #define HUMANA_HPP
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define ORANGE  "\033[38;5;208m"
 
 #include "Weapon.hpp"
 #include <string>

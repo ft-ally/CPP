@@ -4,7 +4,7 @@
 Character::Character()
 	:name("default") 
 {
-	std::cout << YELLOW << "Character default constructor called\n" << RESET;
+	// std::cout << YELLOW << "Character default constructor called\n" << RESET;
 	for (int i = 0; i < 4; i++)
 		inventory[i] = NULL;
 	for (int i = 0; i < 10; i++)
@@ -13,7 +13,7 @@ Character::Character()
 
 Character::~Character()
 {
-	std::cout << YELLOW << "Character deconstructor called\n" << RESET;
+	// std::cout << YELLOW << "Character deconstructor called\n" << RESET;
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->inventory[i])
@@ -44,7 +44,7 @@ Character::Character(std::string name)
 
 Character::Character(const Character &src)
 {
-	std::cout << YELLOW << "Character copy constructor called\n" << RESET;
+	// std::cout << YELLOW << "Character copy constructor called\n" << RESET;
 	for (int i = 0; i < 4; i++)
 	{
 		if (src.inventory[i])
@@ -113,9 +113,12 @@ void Character::equip(AMateria *m)
 			if (this->inventory[i] == NULL)
 			{
 				this->inventory[i] = m;
+				std::cout << YELLOW << m->getType() << " equipped to slot " << i << "\n" << RESET;
 				return ;
 			}
 		}
+		std::cout << RED << "Inventory full! Cannot equip " << m->getType() << "\n" << RESET;
+
 	}
 }
 
@@ -136,12 +139,17 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
 	if (idx > 3 || idx < 0)
+	{
+		std::cout << RED << "Invalid inventory slot" << RESET << std::endl;
 		return ;
+	}
 	else
 	{
 		if (this->inventory[idx])
 			this->inventory[idx]->use(target);
 		else
-			return ;
+		{
+			std::cout << RED << "==nothing equipped at this slot==" << RESET << std::endl;
+		}
 	}
 }

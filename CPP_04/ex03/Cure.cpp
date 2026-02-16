@@ -4,24 +4,24 @@
 
 Cure::Cure() : AMateria("cure")
 {
-	std::cout << GREEN << "Cure default constructor called\n" << RESET;
+	// std::cout << GREEN << "Cure default constructor called\n" << RESET;
 }
 
 Cure::~Cure()
 {
-	std::cout << GREEN << "Cure deconstructor called\n" << RESET;
+	// std::cout << GREEN << "Cure deconstructor called\n" << RESET;
 }
 
 Cure::Cure(const Cure &src)
 	: AMateria(src)
 {
-	std::cout << GREEN << "Cure copy constructor called\n" << RESET;
+	// std::cout << GREEN << "Cure copy constructor called\n" << RESET;
 }
 
 Cure& Cure::operator=(const Cure &src)
 {
 	this->type = src.type;
-	std::cout << GREEN << "Cure copy assignmment operator called\n" << RESET;
+	// std::cout << GREEN << "Cure copy assignmment operator called\n" << RESET;
 	return (*this);
 }
 

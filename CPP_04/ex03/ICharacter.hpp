@@ -5,6 +5,8 @@
 #include "AMateria.hpp"
 #include "Colors.hpp"
 
+class AMateria;
+
 class ICharacter
 {
 	public:

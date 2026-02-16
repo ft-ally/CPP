@@ -28,6 +28,8 @@ int main()
 	Weapon hammer = Weapon("crude spiked club");
 
 	HumanB jim("Jim");
+	jim.attack(); //no weapon
+	
 	jim.setWeapon(hammer);
 	jim.attack();
 	hammer.setType("some other type of club");

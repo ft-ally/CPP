@@ -20,11 +20,11 @@ HumanA::HumanA(std::string name, Weapon &weapon)
 
 HumanA::~HumanA()
 {
-	std::cout << "Human A " << name << " has become death."
-			<< std::endl;
+	std::cout << RED << "Human A " << name << " has become death."
+			<< std::endl << RESET;
 }
 void HumanA::attack()
 {
-	std::cout << name << " attacks with their "
-			<< weapon.getType() << std::endl;
+	std::cout << ORANGE << name << " attacks with their "
+			<< weapon.getType() << std::endl << RESET;
 }

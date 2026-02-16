@@ -20,8 +20,8 @@ HumanB::HumanB(std::string name)
 
 HumanB::~HumanB()
 {
-	std::cout << "Human B " << name << " has become death."
-			<< std::endl;
+	std::cout << RED<< "Human B " << name << " has become death."
+			<< std::endl << RESET;
 }
 
 void HumanB::setWeapon(Weapon &weapon)
@@ -32,9 +32,9 @@ void HumanB::attack()
 {
 	if (weapon)
 	{
-		std::cout << name << " attacks with their "
-			<< weapon->getType() << std::endl;
+		std::cout << MAGENTA << name << " attacks with their "
+			<< weapon->getType() << std::endl << RESET;
 	}
 	else
-		std::cout << name << " attacks with their bare hands!!" << std::endl;
+		std::cout << MAGENTA << name << " attacks with their bare hands!!" << std::endl << RESET;
 }

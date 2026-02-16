@@ -13,6 +13,11 @@
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 
+#define RESET   "\033[0m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define ORANGE  "\033[38;5;208m"
+
 #include <iostream>
 #include <string>
 

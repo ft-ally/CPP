@@ -10,6 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#define RESET   "\033[0m"
+#define GREEN   "\033[32m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+
 #include <string>
 #include <iostream>
 
@@ -19,12 +24,12 @@ int main()
 	std::string *stringPTR = &str;
 	std::string &stringREF = str;
 	
-	std::cout << "Memory address of string variable: " << &str << "\n";
-	std::cout << "Memory address held by stringPTR: " << stringPTR << "\n";
-	std::cout << "Memory address held by stringREF: " << &stringREF << "\n";
+	std::cout << GREEN << "Memory address of string variable: " << &str << "\n" << RESET;
+	std::cout << BLUE << "Memory address held by stringPTR: " << stringPTR << "\n" << RESET;
+	std::cout << MAGENTA << "Memory address held by stringREF: " << &stringREF << RESET << std::endl << std::endl;
 
-	std::cout << "Value of string variable: " << str << "\n";
-	std::cout << "Value pointed to by stringPTR: " << *stringPTR << "\n";
-	std::cout << "Value pointed to by stringREF: " << stringREF << "\n";
+	std::cout << GREEN << "Value of string variable: " << str << "\n" << RESET;
+	std::cout << BLUE << "Value pointed to by stringPTR: " << *stringPTR << "\n" << RESET;
+	std::cout << MAGENTA << "Value pointed to by stringREF: " << stringREF << "\n" << RESET;
 
 }

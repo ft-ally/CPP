@@ -36,7 +36,7 @@ int getValidCount()
 			continue ;
 		if (!isDigit(input))
 		{
-			std::cout << "Invalid input/char detected!\n";
+			std::cout << RED << "Invalid input/char detected!\n" << RESET;
 			continue ;
 		}
 		try
@@ -45,12 +45,12 @@ int getValidCount()
 		}
 		catch (const std::out_of_range &e)
 		{
-			std::cout << "ARE YOU TRYING TO CRASH ME!? Pls. use a reasonable number.\n";
+			std::cout << RED << "ARE YOU TRYING TO CRASH ME!? Pls. use a reasonable number.\n" << RESET;
 			continue ;
 		}
 		if (longCount <= 0)
 		{
-			std::cout << "Input error! Cannot create NO zombies..\n";
+			std::cout << RED <<"Input error! Cannot create NO zombies..\n" << RESET;
 			continue ;
 		}
 		else
@@ -77,7 +77,7 @@ int main()
 		else
 			break ;
 	}
-	std::cout << "Creating a horde of " << input << " zombies...\n";
+	std::cout << GREEN << "Creating a horde of " << input << " zombies...\n";
 	Zombie *horde = zombieHorde(count, input);
 	delete[] horde;
 	return (0);

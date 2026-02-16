@@ -13,6 +13,11 @@
 #ifndef HUMANB_HPP
 #define HUMANB_HPP
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+
 #include "Weapon.hpp"
 #include <string>
 #include <iostream>

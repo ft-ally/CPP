@@ -6,4 +6,4 @@
 #define BLUE    "\033[34m"
 #define MAGENTA "\033[35m"
 #define CYAN    "\033[36m"
-#define BOLD    "\033[1m"
+#define ORANGE  "\033[38;5;208m"
