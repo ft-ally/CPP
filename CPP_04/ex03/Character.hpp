@@ -20,8 +20,8 @@ class Character : public ICharacter
 	Character& operator=(const Character &src);
 	
 	void putOnFloor(AMateria *m);
-	std::string const &getName() const override;
 	void equip(AMateria *m) override;
+	std::string const &getName() const override;
 	void unequip(int idx) override;
 	void use(int idx, ICharacter& target) override;
 };
