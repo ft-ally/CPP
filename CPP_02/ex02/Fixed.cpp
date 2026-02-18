@@ -25,14 +25,14 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "Copy constructor called"  << std::endl;
-	*this = src;
+	*this = src; // CHECK -> shouldnt it be this->fx = src.fx?
 }
 
 Fixed &Fixed::operator=(const Fixed &src)
 {
 	std::cout << "Copy assignment operator called"  << std::endl;	
 	if (this != &src)
-		fx = src.fx;
+		fx = src.fx; //CHECK
 	return (*this);
 }
 

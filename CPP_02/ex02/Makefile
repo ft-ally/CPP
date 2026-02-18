@@ -1,6 +1,6 @@
 NAME = ex02
 
-PURPLE = \033[1;35m
+PURPLE = \033[;35m
 CYAN = \033[1;36m
 BLUE = \033[1;34m
 PINK = \033[1;95m
@@ -35,6 +35,6 @@ fclean: clean
 	@echo "$(BLUE)Executable file removed $(RESET)"
 
 re: fclean all
-	@echo "$(PINK)Object and executable files successfully rebuilt $(RESET)"
+	@echo "$(ORANGE)Object and executable files successfully rebuilt $(RESET)"
 
 .PHONY: all re clean fclean
