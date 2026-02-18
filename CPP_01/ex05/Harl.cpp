@@ -6,7 +6,7 @@
 /*   By: aalombro <aalombro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 18:26:47 by aalombro          #+#    #+#             */
-/*   Updated: 2025/11/27 18:55:56 by aalombro         ###   ########.fr       */
+/*   Updated: 2026/02/18 12:23:23 by aalombro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ void Harl::complain(std::string level)
 			return;
 		}
 	}
+	std::cout << RED << "Command not found!" << RESET << std::endl;
 }

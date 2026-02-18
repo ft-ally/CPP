@@ -6,7 +6,7 @@
 /*   By: aalombro <aalombro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 16:30:41 by aalombro          #+#    #+#             */
-/*   Updated: 2025/11/27 13:54:47 by aalombro         ###   ########.fr       */
+/*   Updated: 2026/02/18 12:04:14 by aalombro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Zombie::Zombie()
 }
 Zombie::~Zombie()
 {
-	std::cout << CYAN << "Zombie " << name << " has gone to the light"
+	std::cout << CYAN << "Zombie " << name << " has gone to the light" << RESET
 	<< std::endl;
 }
 

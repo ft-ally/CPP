@@ -7,7 +7,7 @@ PINK = \033[1;95m
 RESET = \033[0m
 
 COMP = c++
-FLAGS = -Wall -Wextra -Werror -std=c++20 -g
+FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
