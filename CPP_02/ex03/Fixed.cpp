@@ -24,14 +24,14 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed &ref)
 {
 	// std::cout << "Copy constructor called"  << std::endl;
-	*this = ref;
+	this->fx = ref.fx;
 }
 
 Fixed &Fixed::operator=(const Fixed &f)
 {
 	// std::cout << "Copy assignment operator called"  << std::endl;	
 	if (this != &f)
-		fx = f.fx;
+		this->fx = f.fx;
 	return (*this);
 }
 
@@ -47,32 +47,32 @@ int Fixed::getRawBits(void) const
 }
 /// Comparison operator overloads ///
 
-bool Fixed::operator>(const Fixed &obj)
+bool Fixed::operator>(const Fixed &obj) const
 {
 	return (this->fx > obj.fx);
 }
 
-bool Fixed::operator>=(const Fixed &obj)
+bool Fixed::operator>=(const Fixed &obj) const
 {
 	return (this->fx >= obj.fx);
 }
 
-bool Fixed::operator<(const Fixed &obj)
+bool Fixed::operator<(const Fixed &obj) const
 {
 	return (this->fx < obj.fx);
 }
 
-bool Fixed::operator<=(const Fixed &obj)
+bool Fixed::operator<=(const Fixed &obj) const
 {
 	return (this->fx <= obj.fx);
 }
 
-bool Fixed::operator==(const Fixed &obj)
+bool Fixed::operator==(const Fixed &obj) const
 {
 	return (this->fx == obj.fx);
 }
 
-bool Fixed::operator!=(const Fixed &obj)
+bool Fixed::operator!=(const Fixed &obj) const
 {
 	return (this->fx != obj.fx);
 }

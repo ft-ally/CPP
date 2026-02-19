@@ -25,7 +25,7 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << "Copy constructor called"  << std::endl;
-	*this = src; // CHECK -> shouldnt it be this->fx = src.fx?
+	this->fx = src.fx; 
 }
 
 Fixed &Fixed::operator=(const Fixed &src)
@@ -43,32 +43,32 @@ float Fixed::toFloat(void) const
 
 /// Comparison operator overloads ///
 
-bool Fixed::operator>(const Fixed &obj)
+bool Fixed::operator>(const Fixed &obj) const
 {
 	return (this->fx > obj.fx);
 }
 
-bool Fixed::operator>=(const Fixed &obj)
+bool Fixed::operator>=(const Fixed &obj) const
 {
 	return (this->fx >= obj.fx);
 }
 
-bool Fixed::operator<(const Fixed &obj)
+bool Fixed::operator<(const Fixed &obj) const
 {
 	return (this->fx < obj.fx);
 }
 
-bool Fixed::operator<=(const Fixed &obj)
+bool Fixed::operator<=(const Fixed &obj) const
 {
 	return (this->fx <= obj.fx);
 }
 
-bool Fixed::operator==(const Fixed &obj)
+bool Fixed::operator==(const Fixed &obj) const
 {
 	return (this->fx == obj.fx);
 }
 
-bool Fixed::operator!=(const Fixed &obj)
+bool Fixed::operator!=(const Fixed &obj) const
 {
 	return (this->fx != obj.fx);
 }

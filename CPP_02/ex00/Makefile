@@ -1,9 +1,10 @@
 NAME = ex00
 
-PURPLE = \033[1;35m
+PURPLE = \033[;35m
 CYAN = \033[1;36m
 BLUE = \033[1;34m
 PINK = \033[1;95m
+
 RESET = \033[0m
 
 COMP = c++
