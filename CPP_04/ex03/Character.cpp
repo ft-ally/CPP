@@ -118,7 +118,7 @@ void Character::equip(AMateria *m)
 			}
 		}
 		std::cout << RED << "Inventory full! Cannot equip " << m->getType() << "\n" << RESET;
-
+		delete m;
 	}
 }
 
