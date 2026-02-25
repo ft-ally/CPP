@@ -41,6 +41,13 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &src)
 	return (*this);
 }
 
+void DiamondTrap::getAttributes()
+{
+	std::cout << "HP: " << hp << std::endl;
+	std::cout << "EP: " << ep << std::endl;
+	std::cout << "Damage: " << dmg << std::endl;
+}
+
 void DiamondTrap::whoAmI(void)
 {
 	std::string clap_name = this->ClapTrap::getName();

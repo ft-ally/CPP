@@ -20,7 +20,7 @@ FragTrap::FragTrap(std::string name)
 }	
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap default constructor called" << std::endl;
+	std::cout << "FragTrap destructor called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &src)

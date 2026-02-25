@@ -8,6 +8,7 @@
 
 class DiamondTrap : public FragTrap, public ScavTrap
 {
+	private:
 	std::string name;
 	
 	public:
@@ -19,6 +20,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
 	
 	using ScavTrap::attack;
 	void whoAmI();
+	void getAttributes();
 };
 
 #endif

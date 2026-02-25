@@ -1,6 +1,8 @@
 
 #include "DiamondTrap.hpp"
 
+#define RESET   "\033[0m"
+#define GREEN    "\033[32m"
 #include <random>
 #include <unistd.h>
 
@@ -57,7 +59,7 @@ int startGame(DiamondTrap &player)
 		}
 		std::string input;
 		usleep(1000000);
-		std::cout << std::endl << "Your move, cowboy!" << std::endl;
+		std::cout << std::endl << GREEN << "Your move, cowboy!" << RESET << std::endl;
 		std::cout << "ATTACK | HEAL | HIGH FIVE | GUARD | DOUBT EXISTENCE | EXIT" << std::endl;
 		if (!std::getline(std::cin, input))
 			exit(0) ;
@@ -91,48 +93,54 @@ int startGame(DiamondTrap &player)
 // int main()
 // {
 // 	std::string playerName = initiateStart();
-// 	FragTrap player(playerName);
+// 	DiamondTrap player(playerName);
 // 	startGame(player);
 // }
+
+
 int main()
 {
-    std::cout << "=== Test 1: DiamondTrap Constructor ===" << std::endl;
-    DiamondTrap diamond1("Warrior");
+    std::cout << GREEN << "=== Test 1: DiamondTrap Constructor ===" << RESET << std::endl;
+    DiamondTrap d1("Diammy");
     std::cout << std::endl;
 
-    std::cout << "=== Test 2: DiamondTrap Copy Constructor ===" << std::endl;
-    DiamondTrap diamond2(diamond1);
+    std::cout << GREEN << "=== Test 2: DiamondTrap Copy Constructor ===" << RESET << std::endl;
+    DiamondTrap d2(d1);
     std::cout << std::endl;
 
-    std::cout << "=== Test 3: DiamondTrap Assignment ===" << std::endl;
-    DiamondTrap diamond3("Fighter");
-    diamond3 = diamond1;
+    std::cout << GREEN << "=== Test 3: DiamondTrap Assignment ===" << RESET << std::endl;
+    DiamondTrap d3("Mondy");
+    d3 = d1;
     std::cout << std::endl;
 
-    std::cout << "=== Test 4: DiamondTrap Attack (ScavTrap) ===" << std::endl;
-    diamond1.attack("Enemy");
+	std::cout << GREEN << "=== Test 4: DiamondTrap Attributes ===" << RESET << std::endl;
+    d1.getAttributes();
     std::cout << std::endl;
 
-    std::cout << "=== Test 5: DiamondTrap Take Damage ===" << std::endl;
-    diamond1.takeDamage(30);
+    std::cout << GREEN << "=== Test 5: DiamondTrap Attack (ScavTrap's attack(bomb) + FragTrap's attack damage(30)) ===" << RESET << std::endl;
+    d1.attack("Enemy");
     std::cout << std::endl;
 
-    std::cout << "=== Test 6: DiamondTrap Repair ===" << std::endl;
-    diamond1.beRepaired(20);
+    std::cout << GREEN << "=== Test 6: DiamondTrap Take Damage ===" << RESET << std::endl;
+    d1.takeDamage(30);
     std::cout << std::endl;
 
-    std::cout << "=== Test 7: Guard Gate (ScavTrap) ===" << std::endl;
-    diamond1.guardGate();
+    std::cout << GREEN << "=== Test 7: DiamondTrap Repair ===" << RESET << std::endl;
+    d1.beRepaired(20);
     std::cout << std::endl;
 
-    std::cout << "=== Test 8: High Five (FragTrap) ===" << std::endl;
-    diamond1.highFiveGuys();
+    std::cout << GREEN << "=== Test 8: Guard Gate (ScavTrap) ===" << RESET << std::endl;
+    d1.guardGate();
     std::cout << std::endl;
 
-    std::cout << "=== Test 9: Who Am I ===" << std::endl;
-    diamond1.whoAmI();
+    std::cout << GREEN << "=== Test 9: High Five (FragTrap) ===" << RESET << std::endl;
+    d1.highFiveGuys();
     std::cout << std::endl;
 
-    std::cout << "=== Destructors (reverse order) ===" << std::endl;
+    std::cout << GREEN << "=== Test 10: Who Am I ===" << RESET << std::endl;
+    d1.whoAmI();
+    std::cout << std::endl;
+
+    std::cout << GREEN << "=== Destructors (reverse order) ===" << RESET << std::endl;
     return 0;
 }
