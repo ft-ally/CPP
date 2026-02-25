@@ -1,3 +1,5 @@
+#define RESET   "\033[0m"
+#define MAG "\033[35m"
 
 #include "Animal.hpp"
 #include "Dog.hpp"
@@ -5,12 +7,13 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+
 #include <iostream>
 
 
 int main()
 {
-	std::cout << " ======== SUBJECT TESTS ======== " << std::endl;
+	std::cout << MAG << " ======== SUBJECT TESTS ======== " << RESET << std::endl;
 
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
@@ -25,8 +28,8 @@ int main()
 	delete i;
 	std::cout << std::endl << std::endl;
 	
-	std::cout << " ================ TESTS ============== " << std::endl;
-	std::cout << " ======== Constructors called ======== " << std::endl;
+	std::cout << MAG << " ================ TESTS ============== " << RESET << std::endl;
+	std::cout << MAG << " ======== Constructors called ======== " << RESET << std::endl;
 	const Animal* animalTest = new Animal();
 	std::cout << std::endl;
 	const Animal* doggie = new Dog();
@@ -38,40 +41,40 @@ int main()
 	const WrongAnimal* wrongKitty = new WrongCat();
 	std::cout << std::endl;
 	
-	std::cout << " =====Test 1: Calling Animal Base Class =======" << std::endl;
+	std::cout << MAG << " =====Test 1: Calling Animal Base Class =======" << RESET << std::endl;
 	std::cout << "Type: " << animalTest->getType() << std::endl;
 	std::cout << "Sound: "; 
 	animalTest->makeSound(); 
 	std::cout << std::endl;
 	
-	std::cout << " =====Test 2: Calling Dog Derived Base Class ========" << std::endl;
+	std::cout << MAG << " =====Test 2: Calling Dog Derived Base Class ========" << RESET << std::endl;
 	std::cout << "Type: " << doggie->getType() << std::endl;
 	std::cout << "Sound: "; 
 	doggie->makeSound(); 
 	std::cout << std::endl;
 	
 	
-	std::cout << " =====Test 3: Calling Cat Derived Base Class ========" << std::endl;
+	std::cout << MAG << " =====Test 3: Calling Cat Derived Base Class ========" << RESET << std::endl;
 	std::cout << "Type: " << kitty->getType() << std::endl;
 	std::cout << "Sound: "; 
 	kitty->makeSound();
 	std::cout << std::endl;
 	
 	
-	std::cout << " =====Test 4: Calling WrongAnimal Base Class =========" << std::endl;
+	std::cout << MAG << " =====Test 4: Calling WrongAnimal Base Class =========" << RESET << std::endl;
 	std::cout << "Type: " << wrongAnimalTest->getType() << std::endl;
 	std::cout << "Sound: "; 
 	wrongAnimalTest->makeSound(); 
 	std::cout << std::endl;
 	
 	
-	std::cout << " =====Test 5: Calling WrongCat Derived Base Class ========" << std::endl;
+	std::cout << MAG << " =====Test 5: Calling WrongCat Derived Base Class ========" << RESET << std::endl;
 	std::cout << "Type: " << wrongKitty->getType() << std::endl;
 	std::cout << "Sound: "; 
 	wrongKitty->makeSound();
 	std::cout << std::endl;
 	
-	std::cout << " ======== Deconstructors called ======== " << std::endl;
+	std::cout << MAG << " ======== Deconstructors called ======== " << RESET << std::endl;
 	delete animalTest;
 	std::cout << std::endl;
 	delete doggie;

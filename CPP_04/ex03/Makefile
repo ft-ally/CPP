@@ -1,9 +1,10 @@
 NAME = interfaceHell
 
-PURPLE = \033[1;35m
-CYAN = \033[1;36m
-BLUE = \033[1;34m
-PINK = \033[1;95m
+PURPLE = \033[35m
+CYAN = \033[36m
+BLUE = \033[34m
+PINK = \033[95m
+GREEN = \033[1;32m
 RESET = \033[0m
 
 COMP = c++
@@ -19,7 +20,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(COMP) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo "$(PINK)Compilation successful $(RESET)"
+	@echo "$(GREEN)Compilation successful! Program name: $(NAME) $(RESET)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(HEADER_FILES)
 	@mkdir -p $(OBJ_DIR)

@@ -4,6 +4,8 @@
 
 #include <random>
 #include <unistd.h>
+#define RESET   "\033[0m"
+#define OR  "\033[38;5;208m"
 
 std::string initiateStart()
 {
@@ -94,35 +96,35 @@ int startGame(FragTrap &player)
 
 int main()
 {
-    std::cout << "=== Test 1: FragTrap Constructor ===" << std::endl;
-    FragTrap frag1("Warrior");
+    std::cout << OR << "=== Test 1: FragTrap Constructor ===" << RESET << std::endl;
+    FragTrap frag1("Fraggy");
     std::cout << std::endl;
 
-    std::cout << "=== Test 2: FragTrap Copy Constructor ===" << std::endl;
+    std::cout << OR << "=== Test 2: FragTrap Copy Constructor ===" << RESET << std::endl;
     FragTrap frag2(frag1);
     std::cout << std::endl;
 
-    std::cout << "=== Test 3: FragTrap Assignment ===" << std::endl;
-    FragTrap frag3("Fighter");
+    std::cout << OR << "=== Test 3: FragTrap Assignment ===" << RESET << std::endl;
+    FragTrap frag3("Fragger");
     frag3 = frag1;
     std::cout << std::endl;
 
-    std::cout << "=== Test 4: FragTrap Attack ===" << std::endl;
+    std::cout << OR << "=== Test 4: FragTrap Attack ===" << RESET << std::endl;
     frag1.attack("Enemy");
     std::cout << std::endl;
 
-    std::cout << "=== Test 5: FragTrap Take Damage ===" << std::endl;
+    std::cout << OR << "=== Test 5: FragTrap Take Damage ===" << RESET << std::endl;
     frag1.takeDamage(30);
     std::cout << std::endl;
 
-    std::cout << "=== Test 6: FragTrap Repair ===" << std::endl;
+    std::cout << OR << "=== Test 6: FragTrap Repair ===" << RESET <<std::endl;
     frag1.beRepaired(20);
     std::cout << std::endl;
 
-    std::cout << "=== Test 7: High Five Mode ===" << std::endl;
+    std::cout << OR << "=== Test 7: High Five Mode ===" << RESET << std::endl;
     frag1.highFiveGuys();
     std::cout << std::endl;
 
-    std::cout << "=== Destructors (reverse order) ===" << std::endl;
+    std::cout << OR << "=== Destructors  ===" << RESET << std::endl;
     return 0;
 }

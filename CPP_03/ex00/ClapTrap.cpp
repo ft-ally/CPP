@@ -55,7 +55,7 @@ void ClapTrap::attack(const std::string &target)
 {
 
 	if (this->hp < 1)
-		std::cout << "The robot known as ClapTrap " << name << " is dead.. RIP" << std::endl;
+		std::cout << "Cannot attack! You are dead!" << std::endl;
 	else
 	{	
 		if (ep < 1)
@@ -98,6 +98,11 @@ int ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->hp < 1)
+	{
+		std::cout << "Cannot heal! You are dead!" << std::endl;
+		return ;
+	}
 	if (ep < 1)
 	{
 		std::cout << "Out of energy!"

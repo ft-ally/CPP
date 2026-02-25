@@ -1,3 +1,6 @@
+#define RESET   "\033[0m"
+#define CYAN    "\033[36m"
+#define BLUE    "\033[34m"
 
 #include "ClapTrap.hpp"
 
@@ -36,8 +39,8 @@ int startGame(ClapTrap &player)
 		std::random_device rnd;
 		std::uniform_int_distribution<int> gen{1, 10};
 		int roll = gen(rnd);
-		std::cout << "ClapTrap Boss rolls " << roll << "!"
-		<< std::endl;
+		std::cout <<  BLUE << "ClapTrap Boss rolls " << roll << "!"
+		<< RESET << std::endl;
 		usleep(1000000);
 		if (roll % 2 == 0)
 		{
@@ -58,7 +61,7 @@ int startGame(ClapTrap &player)
 		}
 		std::string input;
 		usleep(1000000);
-		std::cout << std::endl << "Your move, cowboy!" << std::endl;
+		std::cout << std::endl << CYAN << "Your move, cowboy!" << RESET << std::endl;
 		std::cout << "ATTACK | HEAL | EXIT" << std::endl;
 		if (!std::getline(std::cin, input))
 			exit(0) ;
@@ -94,41 +97,43 @@ int startGame(ClapTrap &player)
 
 int main()
 {
-	std::cout << "Default Constructor" << std::endl;
+	std::cout << CYAN << "Default Constructor" << RESET << std::endl;
     ClapTrap player1("Robot1");
     std::cout << std::endl;
 
-    std::cout << "=== Test 2: Copy Constructor ===" << std::endl;
+    std::cout << CYAN <<  "=== Test 2: Copy Constructor ===" RESET << std::endl;
     ClapTrap player2(player1);
     std::cout << std::endl;
 
-    std::cout << "=== Test 3: Copy Assignment ===" << std::endl;
+    std::cout << CYAN << "=== Test 3: Copy Assignment ===" << RESET << std::endl;
     ClapTrap player3("Robot3");
     player3 = player1;
     std::cout << std::endl;
 
-    std::cout << "=== Test 4: Attack ===" << std::endl;
+    std::cout << CYAN << "=== Test 4: Attack ===" << RESET << std::endl;
     player1.attack("Target");
     std::cout << std::endl;
 
-    std::cout << "=== Test 5: Take Damage ===" << std::endl;
+    std::cout << CYAN << "=== Test 5: Take Damage ==="<< RESET << std::endl;
     player1.takeDamage(3);
     std::cout << std::endl;
 
-    std::cout << "=== Test 6: Be Repaired ===" << std::endl;
+    std::cout << CYAN << "=== Test 6: Be Repaired ===" << RESET << std::endl;
     player1.beRepaired(5);
     std::cout << std::endl;
 
-    std::cout << "=== Test 7: Run out of energy ===" << std::endl;
+    std::cout << CYAN << "=== Test 7: Run out of energy ===" << RESET << std::endl;
     for (int i = 0; i < 11; i++)
         player1.attack("Enemy");
     std::cout << std::endl;
 
-    std::cout << "=== Test 8: Die ===" << std::endl;
+    std::cout << CYAN << "=== Test 8: Death ===" << RESET << std::endl;
     player2.takeDamage(15);
     player2.attack("Enemy");
+	player2.beRepaired(8);
+
     std::cout << std::endl;
 
-    std::cout << "=== Destructors ===" << std::endl;
+    std::cout << CYAN << "=== Destructors ===" << RESET << std::endl;
     return 0;
 }

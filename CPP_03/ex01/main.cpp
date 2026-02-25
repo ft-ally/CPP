@@ -1,9 +1,11 @@
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-
 #include <random>
 #include <unistd.h>
+
+#define RESET   "\033[0m"
+#define MAG "\033[35m"
 
 std::string initiateStart()
 {
@@ -94,35 +96,35 @@ int startGame(ScavTrap &player)
 
 int main()
 {
-    std::cout << "=== Test 1: ScavTrap Constructor ===" << std::endl;
-    ScavTrap scav1("Warrior");
+    std::cout << MAG << "=== Test 1: ScavTrap Constructor ===" << RESET << std::endl;
+    ScavTrap scav1("Scavy");
     std::cout << std::endl;
 
-    std::cout << "=== Test 2: ScavTrap Copy Constructor ===" << std::endl;
+    std::cout << MAG << "=== Test 2: ScavTrap Copy Constructor ===" << RESET << std::endl;
     ScavTrap scav2(scav1);
     std::cout << std::endl;
 
-    std::cout << "=== Test 3: ScavTrap Assignment ===" << std::endl;
-    ScavTrap scav3("Fighter");
+    std::cout << MAG << "=== Test 3: ScavTrap Assignment ===" << RESET << std::endl;
+    ScavTrap scav3("Scaver");
     scav3 = scav1;
     std::cout << std::endl;
 
-    std::cout << "=== Test 4: ScavTrap Attack ===" << std::endl;
+    std::cout << MAG << "=== Test 4: ScavTrap Attack ===" << RESET << std::endl;
     scav1.attack("Enemy");
     std::cout << std::endl;
 
-    std::cout << "=== Test 5: ScavTrap Take Damage ===" << std::endl;
+    std::cout << MAG << "=== Test 5: ScavTrap Take Damage ===" << RESET << std::endl;
     scav1.takeDamage(30);
     std::cout << std::endl;
 
-    std::cout << "=== Test 6: ScavTrap Repair ===" << std::endl;
+    std::cout << MAG << "=== Test 6: ScavTrap Repair ===" << RESET << std::endl;
     scav1.beRepaired(20);
     std::cout << std::endl;
 
-    std::cout << "=== Test 7: Guard Gate Mode ===" << std::endl;
+    std::cout << MAG << "=== Test 7: Guard Gate Mode ===" << RESET << std::endl;
     scav1.guardGate();
     std::cout << std::endl;
 
-    std::cout << "=== Destructors (reverse order) ===" << std::endl;
+    std::cout << MAG << "=== Destructors (reverse order) ===" << RESET << std::endl;
     return 0;
 }

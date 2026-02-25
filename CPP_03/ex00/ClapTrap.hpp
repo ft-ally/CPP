@@ -4,6 +4,7 @@
 
 class ClapTrap
 {
+	private:
 	std::string name;
 	int hp;
 	int ep;
@@ -13,8 +14,8 @@ class ClapTrap
 	ClapTrap();
 	ClapTrap(std::string name);
 	~ClapTrap();
-	ClapTrap(const ClapTrap &src); //copy constructor
-	ClapTrap &operator=(const ClapTrap &src); //copy assignment overload
+	ClapTrap(const ClapTrap &src);
+	ClapTrap &operator=(const ClapTrap &src);
 
 	std::string getName() const;
 	int getDamage() const;

@@ -52,21 +52,26 @@ int ClapTrap::getDamage() const
 
 void ClapTrap::attack(const std::string &target)
 {
-	if (ep < 1)
-	{
-		std::cout << "Out of energy!"
-			<< std::endl;
-	}
+	if (this->hp < 1)
+		std::cout << "Cannot attack! You are dead!" << std::endl;
 	else
 	{
-		ep -= 1;
-		std::cout << "Hyah! ClapTrap " << name 
-			<< " attacks " << target 
-			<< " for " << dmg 
-			<< " damage!!!" << std::endl
-			<< "****HP remaining:" << hp << std::endl
-			<< "****EP remaining:" << ep << std::endl;
-			
+		if (ep < 1)
+		{
+			std::cout << "Out of energy!"
+				<< std::endl;
+		}
+		else
+		{
+			ep -= 1;
+			std::cout << "Hyah! ClapTrap " << name 
+				<< " attacks " << target 
+				<< " for " << dmg 
+				<< " damage!!!" << std::endl
+				<< "****HP remaining:" << hp << std::endl
+				<< "****EP remaining:" << ep << std::endl;
+				
+		}
 	}
 }
 
@@ -92,6 +97,11 @@ int ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (this->hp < 1)
+	{
+		std::cout << "Cannot heal! You are dead!" << std::endl;
+		return ;
+	}
 	if (ep < 1)
 	{
 		std::cout << "Out of energy!"

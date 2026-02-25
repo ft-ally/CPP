@@ -14,7 +14,7 @@
 
 int main()
 {
-	std::cout << RED << " ======== SUBJECT TESTS ======== " << RESET << std::endl;
+	std::cout << GREEN << " ======== SUBJECT TESTS ======== " << RESET << std::endl;
 
 	const Animal* j = new Dog();
 	std::cout << std::endl;

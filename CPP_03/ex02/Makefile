@@ -1,4 +1,4 @@
-NAME = battle
+NAME = FragTrap
 
 PURPLE = \033[1;35m
 CYAN = \033[1;36m
