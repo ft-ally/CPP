@@ -1,4 +1,4 @@
-NAME = bureaucrat
+NAME = ex01
 
 PURPLE = \033[35m
 CYAN = \033[36m
