@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
+
 
 class Bureaucrat 
 {
@@ -22,6 +24,7 @@ class Bureaucrat
 	int getGrade() const;
 	void incrementGrade();
 	void decrementGrade();
+	void signForm(Form &f) const;
 	
 	const static int MIN_GRADE = 150;
 	const static int MAX_GRADE = 1;

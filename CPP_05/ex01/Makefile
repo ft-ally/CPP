@@ -12,8 +12,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = Bureaucrat.hpp
-SRC_FILES = main.cpp Bureaucrat.cpp
+HEADER_FILES = Bureaucrat.hpp Form.hpp
+SRC_FILES = main.cpp Bureaucrat.cpp Form.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
