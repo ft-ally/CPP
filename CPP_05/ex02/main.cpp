@@ -14,51 +14,56 @@
 
 int main()
 {
-	// std::cout << MAG << " ===== AForm Test - cannot instantiate ====" << RESET << std::endl;
-	// AForm form();
+	/*Initializing forms*/
 	
-	std::cout << MAG << " ==== Test 1: Shrubbery ====" << RESET << std::endl;
-	ShrubberyCreationForm shrub("Helga");
-	shrub.action();
+	ShrubberyCreationForm shrubForm("Shrubbie");
+	RobotomyRequestForm roboForm("Robbie");
+	PresidentialPardonForm presForm("Pressie");
+	
+	std::cout << MAG << " ==== TEST 1: Expected: Can sign, can execute ====" << RESET << std::endl;
+	Bureaucrat boss("Boss Mark", 1);
+	std::cout << boss << std::endl << std::endl;
+	try
+	{
+		boss.signAForm(shrubForm);
+		boss.signAForm(roboForm);
+		boss.signAForm(presForm);
+		std::cout << std::endl;
+		boss.executeForm(shrubForm);
+		boss.executeForm(roboForm);
+		boss.executeForm(presForm);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << std::endl;
+	std::cout << MAG << " ==== Test 2: Expected: can sign and execute Shrub but not Robo and Pres ====" << RESET << std::endl;
 	
-	std::cout << MAG << " ==== Test 2: Robotomy ====" << RESET << std::endl;
-	RobotomyRequestForm rob("David");
-	rob.action();
-	std::cout << std::endl << std::endl;
+	Bureaucrat regularEmployee("RegularJohn", 136);
+	std::cout << regularEmployee << std::endl << std::endl;
+	try
+	{ 
+		regularEmployee.signAForm(shrubForm);
+		regularEmployee.signAForm(roboForm);
+		regularEmployee.signAForm(presForm);
+		std::cout << std::endl;
+		regularEmployee.executeForm(shrubForm);
+		regularEmployee.executeForm(roboForm);
+		regularEmployee.executeForm(presForm);
+	}
+	catch (std::exception &e)
+	{	std::cout << e.what() << std::endl; }
+	std::cout << MAG << " ==== Test 3: Expected: Form not signed exception ====" << RESET << std::endl;
 	
-	std::cout << MAG << " ==== Test 3: Presidential Pardon ====" << RESET << std::endl;
-	PresidentialPardonForm pard("Pardy");
-	pard.action();
-	std::cout << std::endl << std::endl;
-	
+	Bureaucrat anotherEmployee("AnotherJohn", 70);
+	RobotomyRequestForm newRoboRequest("Flora");
+	std::cout << anotherEmployee << std::endl << std::endl;
+	try
+	{ 
+		regularEmployee.executeForm(newRoboRequest);
+	}
+	catch (std::exception &e)
+	{	std::cout << e.what() << std::endl; }
 }
 
-
-/*
-Make a virtual function in Aform that does something
-activity? action? special move?
-Shrub - sign and exec to 145 137
-action: make a file with tree
-
-Robotomy - initialize 72 45
-action rand % 2 == 0 
-
-president - 25 5
-stdcout pardoned
-
-Add execute to Form
-->Create notsigned exception
-->Check if form is signed
-->Check if grade of bureaucrat trying to execute form is high enough
---->kinda like this bureaucrat.grade > gradetoexecuteform
-->Create executor grade not high enough exception
-Else do the action
-
-Add executeForm to bureaucratclass
-i guess it calls execute
-print bureaucrat executed form
-catch the exception
-
-
-*/
