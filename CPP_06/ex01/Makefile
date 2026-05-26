@@ -1,4 +1,4 @@
-NAME = convert
+NAME = serializer
 
 PURPLE = \033[35m
 CYAN = \033[36m
@@ -12,8 +12,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = ScalarConverter.hpp
-SRC_FILES = main.cpp ScalarConverter.cpp Converters.cpp
+HEADER_FILES = Data.hpp Serializer.hpp
+SRC_FILES = main.cpp Serializer.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
