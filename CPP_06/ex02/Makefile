@@ -1,4 +1,4 @@
-NAME = converter
+NAME = identifier
 
 PURPLE = \033[35m
 CYAN = \033[36m
@@ -12,8 +12,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = ScalarConverter.hpp
-SRC_FILES = main.cpp ScalarConverter.cpp Converters.cpp
+HEADER_FILES = Base.hpp A.hpp B.hpp C.hpp Colors.hpp
+SRC_FILES = Base.cpp Functions.cpp main.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
@@ -36,6 +36,6 @@ fclean: clean
 	@echo "$(BLUE)Executable file removed $(RESET)"
 
 re: fclean all
-	@echo "$(PINK)Object and executable files successfully rebuilt $(RESET)"
+	@echo "$(PINK)Object and executable files rebuilt $(RESET)"
 
 .PHONY: all re clean fclean
