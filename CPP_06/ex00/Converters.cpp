@@ -5,7 +5,7 @@ void convertChar(const std::string &str, Conversions &conv)
 	if (!std::isprint(str[0]))
 		return outputNonDisplayable(conv);
 	conv.c = str[0];
-	conv.i = (int)str[0];
+	conv.i = static_cast<int>str[0];
 	conv.f = (float)str[0];
 	conv.d = (double)str[0];
 	conv.NonDisplayable = false;
