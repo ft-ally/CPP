@@ -2,6 +2,8 @@
 #define BASE_HPP
 
 #include <iostream>
+#include "Colors.hpp"
+
 class Base {
 
 	public:

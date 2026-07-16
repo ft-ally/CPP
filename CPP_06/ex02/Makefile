@@ -12,7 +12,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = Base.hpp A.hpp B.hpp C.hpp Colors.hpp
+HEADER_FILES = Base.hpp A.hpp B.hpp C.hpp Colors.hpp Functions.hpp
 SRC_FILES = Base.cpp Functions.cpp main.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
