@@ -1,4 +1,4 @@
-NAME = 
+NAME = whatever
 
 PURPLE = \033[35m
 CYAN = \033[36m
@@ -12,8 +12,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = 
-SRC_FILES = 
+HEADER_FILES = Colors.hpp whatever.hpp
+SRC_FILES = main.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
