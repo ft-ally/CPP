@@ -1,0 +1,6 @@
+#define PURPLE "\033[35m"
+#define CYAN "\033[36m"
+#define BLUE "\033[34m"
+#define PINK "\033[95m"
+#define GREEN "\033[1;32m"
+#define RESET "\033[0m"

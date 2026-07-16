@@ -97,3 +97,5 @@ void convertPseudo(const std::string &str, Conversions &conv)
 		conv.f = (float)conv.d;
 	}
 }
+
+//Use static_cast

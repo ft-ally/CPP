@@ -12,15 +12,15 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = Data.hpp Serializer.hpp
-SRC_FILES = main.cpp Serializer.cpp
+HEADER_FILES = Data.hpp Serializer.hpp Colors.hpp
+SRC_FILES = main.cpp Serializer.cpp Data.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(COMP) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)Compilation successful! Program name: $(NAME) $(RESET)"
+	@echo "$(GREEN)Compilation successful! Run program with:$(RESET) $(CYAN)./$(NAME) $(RESET)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(HEADER_FILES)
 	@mkdir -p $(OBJ_DIR)
@@ -36,6 +36,6 @@ fclean: clean
 	@echo "$(BLUE)Executable file removed $(RESET)"
 
 re: fclean all
-	@echo "$(PINK)Object and executable files successfully rebuilt $(RESET)"
+	@echo "$(PINK)Object and executable files rebuilt $(RESET)"
 
 .PHONY: all re clean fclean
