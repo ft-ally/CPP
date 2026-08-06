@@ -12,8 +12,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = Colors.hpp iter.tpp Book.hpp
-SRC_FILES = main.cpp Book.cpp
+HEADER_FILES = iter.hpp
+SRC_FILES = main.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)

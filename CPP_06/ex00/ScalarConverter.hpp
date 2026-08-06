@@ -34,7 +34,7 @@ class ScalarConverter {
 	static void convert(const std::string &str);
 };
 
-int			getType(const std::string &str);
+int		getType(const std::string &str);
 void	outputNonDisplayable(Conversions &conv);
 void	convertChar(const std::string &str, Conversions &conv);
 void	convertInt(const std::string &str, Conversions &conv);

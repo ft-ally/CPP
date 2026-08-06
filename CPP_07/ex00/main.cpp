@@ -1,4 +1,6 @@
-#include "Colors.hpp"
+#define GREEN "\033[1;32m"
+#define RESET "\033[0m"
+
 #include "whatever.hpp"
 
 void printExpected()
@@ -39,10 +41,10 @@ int main()
 	std::cout << "min(x, y) = " << ::min(x, y) << std::endl;
 	std::cout << "max(x, y) = " << ::max(x, y) << std::endl << std::endl;
 	std:: cout << "Calling swap... " << std::endl;
-	::swap(x, y);
+	::swap<int>(x, y);
 	std::cout << "x = " << x << std::endl << "y = " << y <<std::endl; 
 
-	std::cout << std::endl << "==========" <<std::endl << std::endl;
+ 	std::cout << std::endl << "==========" <<std::endl << std::endl;
 
 	float f1 = 3.14f;
 	float f2 = 2.71f;
