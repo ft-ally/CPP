@@ -34,5 +34,47 @@ int main()
 {
 	printIntraTest();
 	std::cout << GREEN << "=======OTHER TESTS======" << RESET << std::endl;
+	Span testSpan(5);
+	try {
+		std::cout << PURPLE << "======= TEST 1: Initialize span with 5 elements and add more than 5 elements ======" << RESET << std::endl;
 
+		for (int i = 0; i < 6; i++)
+		{
+			testSpan.addNumber(20);
+		}
+	}
+	catch(std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	
+	std::cout << PURPLE << "======= TEST 2: Longest and shortest span======" << RESET << std::endl;
+	std::cout << PURPLE << "Elements: {4, 8, 15, 16, 23, 42}" << RESET << std::endl;
+	Span testSpan2(6);
+	testSpan2.addNumber(4);
+	testSpan2.addNumber(8);
+	testSpan2.addNumber(15);
+	testSpan2.addNumber(16);
+	testSpan2.addNumber(23);
+	testSpan2.addNumber(42);
+	
+	std::cout << "Shortest span is: " << testSpan2.shortestSpan() << std::endl;
+	std::cout << "Longest span is: " << testSpan2.longestSpan() << std::endl;
+
+		std::cout << PURPLE << "======= TEST 3: Longest and shortest span======" << RESET << std::endl;
+	std::cout << PURPLE << "Elements: {}" << RESET << std::endl;
+	Span testSpan3(0);
+	try {
+		std::cout << "Shortest span is: " << testSpan3.shortestSpan() << std::endl;
+	}
+	catch(std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	
+	try {
+		std::cout << "Longest span is: " << testSpan3.longestSpan() << std::endl;
+	}
+	catch(std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 }

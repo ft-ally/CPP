@@ -4,7 +4,7 @@
 #include <vector>
 #include <limits.h>
 #include <algorithm>
-
+#include <iostream>
 class Span {
 	
 	private:
@@ -97,14 +97,17 @@ void Span::addNumber(int n)
 	if (_v.size() >= _nMax)
 		throw overLimitException();
 	_v.push_back(n);
+	std::cout << "Addded " << n << " to vector. Span size: " << _v.size() << std::endl;
 }
 
 unsigned int Span::shortestSpan()
 {
 	unsigned int shortest = UINT_MAX;
 	int diff = 0;
+	
+	if (_v.size() == 0)
+		throw noSpanFoundException();
 	int prev = _v.front();
-
 	for (auto it = _v.begin() + 1; it != _v.end(); ++it)
 	{
 		diff = abs(prev - *it);
@@ -119,6 +122,8 @@ unsigned int Span::longestSpan()
 {
 	unsigned int longest = 0;
 	int diff = 0;
+	if (_v.size() == 0)
+		throw noSpanFoundException();
 	int prev = _v.front();
 
 	for (auto it = _v.begin() + 1; it != _v.end(); ++it)
