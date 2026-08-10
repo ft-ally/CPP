@@ -19,6 +19,7 @@ class Span {
 		~Span();
 		
 		void addNumber(int n); //add a single number to a span
+		void addNumber(int n, int calls);
 		
 		unsigned int shortestSpan();
 		unsigned int longestSpan();
@@ -99,6 +100,12 @@ void Span::addNumber(int n)
 	_v.push_back(n);
 	std::cout << "Addded " << n << " to vector. Span size: " << _v.size() << std::endl;
 }
+
+void Span::addNumber(int n, int calls)
+{
+	for (int it: _v)
+		addNumber(n);
+} //? to check
 
 unsigned int Span::shortestSpan()
 {
