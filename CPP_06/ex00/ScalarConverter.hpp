@@ -21,6 +21,7 @@ struct Conversions {
 	float		f;
 	double		d;
 	bool		NonDisplayable;
+	bool		NonPrintable;
 	void		printConversion();
 };
 

@@ -2,12 +2,21 @@
 
 void convertChar(const std::string &str, Conversions &conv)
 {
+	if (str.empty())
+		return outputNonDisplayable(conv);
+	unsigned char ch = static_cast<unsigned char>(str[0]);
+	if (ch == 0 || (ch > 0 && ch < 32)) { 
+		conv.NonPrintable = true; 
+		conv.NonDisplayable = false; 
+		return;
+	}
+if (!std::isprint(ch)) { outputNonDisplayable(conv); return; }
 	if (!std::isprint(str[0]))
 		return outputNonDisplayable(conv);
 	conv.c = str[0];
-	conv.i = static_cast<int>(str[0]);
-	conv.f = static_cast<float>(str[0]);
-	conv.d = static_cast<double>(str[0]);
+	conv.i = static_cast<int>(ch);
+	conv.f = static_cast<float>(ch);
+	conv.d = static_cast<double>(ch);
 	conv.NonDisplayable = false;
 }
 
