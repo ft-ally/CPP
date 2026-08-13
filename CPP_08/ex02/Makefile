@@ -1,4 +1,4 @@
-NAME = 
+NAME = mutant
 
 PURPLE = \033[35m
 CYAN = \033[36m
@@ -12,7 +12,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = Colors.hpp
+HEADER_FILES = 
 SRC_FILES = main.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 

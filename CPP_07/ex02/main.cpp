@@ -91,6 +91,4 @@ int main()
 	catch (std::exception &e){ 
 		std::cout << RED << "Exception caught: " << e.what() << RESET << std::endl;
 	}
-	
-	//Add test for copy operator
 }

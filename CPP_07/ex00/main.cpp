@@ -16,7 +16,7 @@ void printExpected()
 
 int main()
 {
-	std::cout << GREEN << "=====EXPECTED=====" <<std::endl << RESET;
+	std::cout << GREEN << "=====PDF TEST EXPECTED=====" <<std::endl << RESET;
 	printExpected();
 	
 	std::cout << std::endl << GREEN << "=====ACTUAL=====" <<std::endl << RESET;
