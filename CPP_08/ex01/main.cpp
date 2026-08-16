@@ -61,8 +61,8 @@ int main()
 	std::cout << "Shortest span is: " << testSpan2.shortestSpan() << std::endl;
 	std::cout << "Longest span is: " << testSpan2.longestSpan() << std::endl;
 
-		std::cout << PURPLE << "======= TEST 3: Longest and shortest span======" << RESET << std::endl;
-	std::cout << PURPLE << "Elements: {}" << RESET << std::endl;
+	std::cout << PURPLE << "======= TEST 3: Longest and shortest span======" << RESET << std::endl;
+	std::cout << PURPLE << "Elements: {} (empty)" << RESET << std::endl;
 	Span testSpan3(0);
 	try {
 		std::cout << "Shortest span is: " << testSpan3.shortestSpan() << std::endl;
@@ -77,4 +77,25 @@ int main()
 	catch(std::exception &e) {
 		std::cout << "Error: " << e.what() << std::endl;
 	}
+
+	std::cout << PURPLE << "======= TEST 4: Use iterators to fill vector======" << RESET << std::endl;
+	std::vector<int> v;
+	v.insert(v.begin(), {3, 5, 6, 7,});
+	Span testSpan4;
+	try {
+		testSpan4.addNumbers(v.begin(), v.end());
+	}
+	catch(std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	std::cout << PURPLE << "======= TEST 5: Use iterators to fill vector, but elements exceed span limit======" << RESET << std::endl;
+
+	Span testSpan5(2);
+	try {
+		testSpan5.addNumbers(v.begin(), v.end());
+	}
+	catch(std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 }
+

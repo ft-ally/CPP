@@ -12,8 +12,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++20
 SRC_DIR = ./
 OBJ_DIR = obj/
 
-HEADER_FILES = Span.hpp
-SRC_FILES = main.cpp
+HEADER_FILES = Span.hpp Colors.hpp
+SRC_FILES = main.cpp Span.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
