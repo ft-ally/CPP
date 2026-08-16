@@ -14,7 +14,6 @@ class Mutant : public std::stack<T>
 
 		//returns iterator
 		typedef typename std::stack<T>::iterator iterator;
-
 		iterator begin();
 		iterator end();
 
@@ -24,16 +23,26 @@ template <typename T>Mutant<T>::Mutant()
 	: std::stack<T>
 {}
 
-template <typename T> Mutant<T>::Mutant(const Mutant &src) 
+template <typename T> 
+Mutant<T>::Mutant(const Mutant &src) 
 	: std::stack<T>(other)
 {
 
 }
 
-template <typename T> Mutant<T>& Mutant<T>::operator=(const Mutant &src)
+template <typename T>
+Mutant<T>& Mutant<T>::operator=(const Mutant &src)
 {
 
 }
+
+template <typename T>
+Mutant<T>::~Mutant()
+{
+	
+}
+
+template <typename T>
 
 
 #endif
