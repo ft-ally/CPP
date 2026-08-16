@@ -52,7 +52,7 @@ int main()
 	std::cout << "min(f1, f2) = " << ::min(f1, f2) << std::endl;
 	std::cout << "max(f1, f2) = " << ::max(f1, f2) << std::endl << std::endl;
 	std:: cout << "Calling swap... " << std::endl;
-	::swap(f1, f2);
+	::swap<float>(f1, f2);
 	std::cout << "f1 = " << f1 << std::endl << "f2 = " << f2 <<std::endl ; 
 
 	std::cout << std::endl << "==========" <<std::endl << std::endl;
@@ -64,7 +64,7 @@ int main()
 	std::cout << "min(s1, s2) = " << ::min(s1, s2) << std::endl;
 	std::cout << "max(s1, s2) = " << ::max(s1, s2) << std::endl;
 	std:: cout << "Calling swap... " << std::endl;
-	::swap(s1, s2);
+	::swap<std::string>(s1, s2);
 	std::cout << "s1 = " << s1 << std::endl << "s2 = " << s2 <<std::endl << std::endl; 
 
 	
