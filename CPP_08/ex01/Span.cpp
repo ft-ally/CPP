@@ -63,7 +63,7 @@ size_t Span::shortestSpan()
 	size_t shortest = UINT_MAX;
 	int diff = 0;
 	
-	if (_v.size() == 0)
+	if (_v.size() < 2)
 		throw noSpanFoundException();
 	int prev = _v.front();
 	for (auto it = _v.begin() + 1; it != _v.end(); ++it)
@@ -80,7 +80,7 @@ size_t Span::longestSpan()
 {
 	size_t longest = 0;
 	int diff = 0;
-	if (_v.size() == 0)
+	if (_v.size() <2)
 		throw noSpanFoundException();
 	int prev = _v.front();
 

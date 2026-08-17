@@ -97,5 +97,21 @@ int main()
 	catch(std::exception &e) {
 		std::cout << "Error: " << e.what() << std::endl;
 	}
+	std::cout << PURPLE << "======= TEST 6: Span with one element======" << RESET << std::endl;
+	Span testSpan6(1);
+	testSpan6.addNumber(20);
+	try {
+		std::cout << "Shortest span with single element: " << testSpan6.shortestSpan() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		std::cout << "Longest span with single element: " << testSpan6.shortestSpan() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+
 }
 
