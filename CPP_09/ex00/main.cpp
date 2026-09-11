@@ -4,14 +4,6 @@
 
 #define BIT_DB "./data.csv"
 
-std::ifstream readInputFile(char *fileName) {
-	std::ifstream file(fileName);
-	if (!file.is_open()) {
-		std::cout << "Error, must input database to compare from!" << std::endl;
-		exit(1);
-	}
-	return(file);
-}
 
 int main(int argc, char **argv)
 {
@@ -19,10 +11,9 @@ int main(int argc, char **argv)
 		std::cout << "Error, must input database to compare from!" << std::endl;
 		return 1;
 	}
-	std::ifstream inputFile = readInputFile(argv[1]);
 	BitcoinExchange exchange;
-	exchange.readDataBase(BIT_DB);
-	exchange.checkRates(inputFile)
+	exchange.loadDataBase(BIT_DB);
+	exchange.checkRates(argv[1]);
 	return 0;
 }
 
