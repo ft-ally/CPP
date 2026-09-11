@@ -12,8 +12,8 @@ class Array {
 		int _size;
 
 	public:
-		Array(); //create an empty array
-		Array(unsigned int n); //create an array of n elements init by default
+		Array();
+		Array(unsigned int n);
 		Array(const Array &src);
 		Array &operator=(const Array &src);
 		~Array();
@@ -47,8 +47,9 @@ template <typename T> Array<T>::Array(unsigned int n)
 
 template <typename T> Array<T>::Array(const Array &src)
 {
-	_arr = new T[src.size()];
-	for (int i = 0; i < src.size(); i++)
+	_size = src._size;
+	_arr = new T[_size];
+	for (int i = 0; i < _size; i++)
 		_arr[i] = src._arr[i];
 }
 
@@ -58,7 +59,7 @@ template <typename T> Array<T>& Array<T>::operator=(const Array &src)
 	{
 		delete[] _arr;
 		_arr = new T[src._size];
-
+		_size = src._size;
 		for (int i = 0; i < src._size; i++)
 			_arr[i] = src._arr[i];
 	}
@@ -67,8 +68,7 @@ template <typename T> Array<T>& Array<T>::operator=(const Array &src)
 
 template <typename T> Array<T>::~Array()
 {
-	if (this->size())
-		delete[] _arr;
+	delete[] _arr;
 }
 
 template <typename T> unsigned int Array<T>::size() const
@@ -78,7 +78,7 @@ template <typename T> unsigned int Array<T>::size() const
 
 template <typename T> T& Array<T>::operator[](int i) const
 {
-	if (i >= _size || i <= 0)
+	if (i >= _size || i < 0)
 		throw OutOfBoundsException();
 	else
 		return _arr[i];
@@ -99,16 +99,3 @@ template <typename T> const char* Array<T>::OutOfBoundsException::what() const n
 	return ("Index is out of bounds!");
 }
 #endif
-	
-	
-	
-	//https://www.youtube.com/watch?v=mQqzP9EWu58
-	//c++ at cimpile time supplies 
-//  You MUST use the operator new[] to allocate memory. Preventive allocation (al-
-// locating memory in advance) is forbidden. Your program must never access non-
-// allocated memory.
-// • Elements can be accessed through the subscript operator: [ ].
-// • When accessing an element with the [ ] operator, if its index is out of bounds, an
-// std::exception is thrown.
-// • A member function size() that returns the number of elements in the array. This
-// member function takes no parameters and must not modify the current instance.

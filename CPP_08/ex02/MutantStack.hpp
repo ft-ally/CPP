@@ -4,45 +4,29 @@
 #include <stack>
 
 template <typename T>
-class Mutant : public std::stack<T>
+class MutantStack : public std::stack<T>
 {
 	public:
-		Mutant();
-		Mutant(const Mutant<T> &src);
-		Mutant& operator=(const Mutant<T> &src);
-		~Mutant();
+		MutantStack()
+			: std::stack<T>() {};
+		MutantStack(const MutantStack<T> &src)
+			: std::stack<T>(src) {};
+		MutantStack& operator=(const MutantStack<T> &src)
+			{
+				std::stack<T>::operator=(src);
+				return *this;
+			};
+		~MutantStack() {};
 
-		//returns iterator
-		typedef typename std::stack<T>::iterator iterator;
-		iterator begin();
-		iterator end();
+		typedef typename std::deque<T>::iterator iterator;
+		iterator begin() {
+			return (this->c.begin());
+		};
+		iterator end() {
+			return (this->c.end());
+		};
 
 };
-
-template <typename T>Mutant<T>::Mutant()
-	: std::stack<T>
-{}
-
-template <typename T> 
-Mutant<T>::Mutant(const Mutant &src) 
-	: std::stack<T>(other)
-{
-
-}
-
-template <typename T>
-Mutant<T>& Mutant<T>::operator=(const Mutant &src)
-{
-
-}
-
-template <typename T>
-Mutant<T>::~Mutant()
-{
-	
-}
-
-template <typename T>
 
 
 #endif
