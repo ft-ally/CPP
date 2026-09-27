@@ -2,10 +2,16 @@
 #define BITCOINEXCHANGE_HPP
 
 #include <map>
+#include <stdexcept>
+#include <iostream>
+#include <fstream>
 
 class BitcoinExchange
 {
-	std::map<std::string, float>	_db; //check if i need to template this or just use float
+	std::map<std::string, float>	_db;
+	std::string						_currentDate;
+	float							_currentUnits;
+	
 
 	public:
 		BitcoinExchange();
@@ -14,9 +20,9 @@ class BitcoinExchange
 		~BitcoinExchange();
 	
 		void loadDataBase(const char *db);
-		void printData();
-		float calculate();
-		void checkRates(char *inputFile);
+		void parseInput(std::string line);
+		void pushToOutput();
+		void startExchange(char *inputFile);
 };
 	
 BitcoinExchange::BitcoinExchange() : _db() {}
@@ -35,12 +41,11 @@ BitcoinExchange::~BitcoinExchange() {}
 
 void BitcoinExchange::loadDataBase(const char *db) {
 	std::ifstream file(db);
-	if (!file.is_open()) {
-		std::cerr << "Error: could not open database file\n";
-		exit(1);
-	}
+	if (!file.is_open())
+		throw std::runtime_error("Error, could not open database file\n");
 	std::string line;
-	std::getline(file, line);
+	if (!std::getline(file, line)) 
+		throw std::runtime_error("Error, empty database file\n");
 	while (std::getline(file, line)) {
 		size_t pos = line.find(',');
 		if (pos == std::string::npos)
@@ -52,33 +57,52 @@ void BitcoinExchange::loadDataBase(const char *db) {
 	file.close();
 }
 
-static int validateDate(std::string date) {
+void BitcoinExchange::parseInput(std::string line) {
+	size_t pos = line.find(" | ");
+	if (pos == std::string::npos)
+		throw std::runtime_error("Error, bad input: " + line);
+
+	_currentDate = line.substr(0, pos);
+	_currentUnits = std::stof(line.substr(pos, 3));
+}
+
+
+static void validateDate(std::string _currentDate) {
 	
 }
 
-void BitcoinExchange::checkRates(char *inputFile) {
-	std::ifstream file(inputFile);
-	if (!file.is_open()) {
-		std::cout << "Error, must input database to compare from!" << std::endl;
-		exit(1);
-	}
-	std::string line;
-	std::getline(file, line);
 
-	size_t pos = line.find(" | ");
-	if (pos == std::string::npos) {
-		std::cout << "Error, bad input: " << line << "\n";
-		file.close();
-		return;
-	}
-
-	std::string date = line.substr(0, pos);
-	float units = std::stof(line.substr(pos, 3));
+static void validateUnits(float _currentUnits) {
 	
-	if (!validateDate(date)) {
-		std::cout << "Error: bad date input: " << line << '\n';
-		file.close();
-		return;
+}
+
+void BitcoinExchange::pushToOutput() {
+	float result = _currentUnits * _db[_currentDate];
+	std::cout << _currentDate << " => "
+		<< _currentUnits << " = " 
+		<< result
+		<< "\n";
+}
+
+void BitcoinExchange::startExchange(char *inputFile) {
+	std::ifstream file(inputFile);
+	if (!file.is_open())
+		throw std::runtime_error("Error, could not open input file\n");
+
+	std::string line;
+	if (!std::getline(file, line))
+		throw std::runtime_error("Error, empty input file\n");
+	
+	while (std::getline(file, line)) {
+		try {
+			parseInput(line);
+			validateDate(_currentDate);
+			validateUnits(_currentUnits);
+			pushToOutput();
+		} catch (const std::exception &e) {
+			std::cerr << e.what() << '\n';
+			continue;
+		}
 	}
 }
 	//process line by line
