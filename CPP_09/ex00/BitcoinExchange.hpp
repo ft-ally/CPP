@@ -6,6 +6,8 @@
 #include <iostream>
 #include <fstream>
 
+#define MIN_YEAR 2009
+
 class BitcoinExchange
 {
 	std::map<std::string, float>	_db;
@@ -55,6 +57,7 @@ void BitcoinExchange::loadDataBase(const char *db) {
 		_db[date] = rate;
 	}
 	file.close();
+	//add validation here too or nah?
 }
 
 void BitcoinExchange::parseInput(std::string line) {
@@ -66,9 +69,51 @@ void BitcoinExchange::parseInput(std::string line) {
 	_currentUnits = std::stof(line.substr(pos, 3));
 }
 
+static void splitDate(std::string _currentDate, std::string &y, std::string &m, std::string &d) {
+	if (_currentDate.size() != 10)
+		throw std::runtime_error("Error, bad date input => " + _currentDate);
+
+	size_t firstSep = _currentDate.find("-");
+	if (firstSep == std::string::npos)
+		throw std::runtime_error("Error, bad date format => " + _currentDate);
+
+	size_t secondSep = _currentDate.find("-", firstSep + 1);
+	if (secondSep == std::string::npos)
+		throw std::runtime_error("Error, bad date format => " + _currentDate);
+
+	y = _currentDate.substr(0, firstSep);
+	m = _currentDate.substr(firstSep + 1, secondSep - firstSep - 1);
+	d = _currentDate.substr(secondSep + 1);
+}
+
+static void checkDate(std::string currentDate, std::string yStr, std::string mStr, std::string dStr) {
+	int year = std::stoi(yStr);
+	int month = std::stoi(mStr);
+	int date = std::stoi(dStr);
+	
+	if (year < MIN_YEAR)
+		throw std::runtime_error("Error, BTC did not exist yet => " + currentDate);
+	if (year > 2026)
+		throw std::runtime_error("Error, date too far in the future => " + currentDate);
+	if (month < 1 || month > 12)
+		throw std::runtime_error("Error, bad date format => " + currentDate);
+	if (date < 1 || date > 31)
+		throw std::runtime_error("Error, bad date format => " + currentDate);
+	if (month == 2) {
+		bool leap = (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
+		if ((leap && date > 29) || (!leap && date > 28))
+			throw std::runtime_error("Error, bad date format => " + currentDate);
+	}
+	else if (month == 4 || month == 6 || month == 9 || month == 12) {
+		if (date > 30)
+			throw std::runtime_error("Error, bad date format => " + currentDate);
+	}
+}
 
 static void validateDate(std::string _currentDate) {
-	
+	std::string year, month, day;
+	splitDate(_currentDate, year, month, day);
+	checkDate(_currentDate, year, month, day);
 }
 
 
@@ -77,6 +122,8 @@ static void validateUnits(float _currentUnits) {
 }
 
 void BitcoinExchange::pushToOutput() {
+	//if there is no current date, go to the one before
+	//also check the result is not overflowing
 	float result = _currentUnits * _db[_currentDate];
 	std::cout << _currentDate << " => "
 		<< _currentUnits << " = " 
