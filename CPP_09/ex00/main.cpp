@@ -21,3 +21,5 @@ int main(int argc, char **argv)
 		return 1;
 	}
 }
+
+//test the ff empty file, bad header, dates before database start, wrong input, wrong date in db
