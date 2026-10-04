@@ -16,7 +16,15 @@ class PmergeMe {
 	PmergeMe& operator=(const PmergeMe &src);
 	~PmergeMe();
 
+	sort();
+	
+	static_assert(
+		(std::is_same_v<std::vector<int>, T> 
+		|| std::is_same_v<std::deque<int>, T>),
+		"Error, unsupported container type. Use vector or deque"
+	)
 };
+//should i put back the static assert??
 
 //get the string
 //check how many elements, divide by 2, upper bound. that's how many times for the loop
