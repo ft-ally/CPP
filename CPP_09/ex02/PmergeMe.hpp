@@ -16,18 +16,32 @@ class PmergeMe {
 	PmergeMe& operator=(const PmergeMe &src);
 	~PmergeMe();
 
-	sort();
+	void start();
 	
 	static_assert(
 		(std::is_same_v<std::vector<int>, T> 
 		|| std::is_same_v<std::deque<int>, T>),
 		"Error, unsupported container type. Use vector or deque"
-	)
+	);
 };
-//should i put back the static assert??
 
-//get the string
-//check how many elements, divide by 2, upper bound. that's how many times for the loop
-//do it recursively on each pair?
+template <typename T>
+PmergeMe<T>::PmergeMe(const T& input)
+	: container(input) {}
+	
+	
+template <typename T> PmergeMe<T>::~PmergeMe() {}
+
+template <typename T>
+void PmergeMe<T>::start() {}
+
+/* 
+phase 1: pair and sort recursively 
+split into pairs
+sort inside pairs, put the lower number first
+take the larger number (winners), and sort them but keeping their old pair
+
+
+*/
 #endif
 

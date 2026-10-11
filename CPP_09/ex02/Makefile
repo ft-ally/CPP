@@ -13,7 +13,7 @@ SRC_DIR = ./
 OBJ_DIR = obj/
 
 HEADER_FILES = PmergeMe.hpp Colors.hpp
-SRC_FILES = main.cpp PmergeMe.cpp PTestMe.cpp
+SRC_FILES = main.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 
 all: $(NAME)
@@ -38,10 +38,10 @@ fclean: clean
 re: fclean all
 	@echo "$(PINK)Object and executable files rebuilt $(RESET)"
 
-test:
-	@echo "$(PURPLE)Compiling tests... $(RESET)"
-	@$(COMP) $(FLAGS) PTestMe.cpp -o PTestMe
-	@echo "$(GREEN)Running tests...$(RESET)"
-	@./PTestMe
+# test:
+# 	@echo "$(PURPLE)Compiling tests... $(RESET)"
+# 	@$(COMP) $(FLAGS) PTestMe.cpp -o PTestMe
+# 	@echo "$(GREEN)Running tests...$(RESET)"
+# 	@./PTestMe
 
-.PHONY: all re clean fclean test
+.PHONY: all re clean fclean
